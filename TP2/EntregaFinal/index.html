@@ -40,7 +40,15 @@
                 </p>
             </div>
         </section>
-    </footer> 
-    <script src="js/carga.js"></script>
+    </footer>
+    <script>
+        const loader = document.querySelector(".paginaInicial");
+  
+  setInterval(function(){
+      loader.classList.add("cargada");
+      document.body.removeChild(loader);
+    }, 5000);
+        
+    </script>
 </body>
 </html>
