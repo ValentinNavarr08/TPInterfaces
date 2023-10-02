@@ -1,8 +1,6 @@
-window.addEventListener("carga", () => {
-    const loader = document.querySelector(".paginaInicial");
+const loader = document.querySelector(".paginaInicial");
   
-    setInterval(function(){
-        loader.classList.add("cargada");
-        document.body.removeChild(loader);
-      }, 1000);
-  });
+setInterval(function(){
+    loader.classList.add("cargada");
+    document.body.removeChild(loader);
+  }, 5000);
