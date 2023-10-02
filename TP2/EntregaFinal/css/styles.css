@@ -135,41 +135,167 @@ meter {
     --verde : hsl(119, 57%, 46%);
     --rojo : hsl(0, 71%, 34%);
 
-  }
+}
 
-  body{
+body{
     background-color: var(--primario);
+}
+.paginaInicial{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: var(--primario);
+    justify-content: center;
+    flex-direction: column;
+    transition: opacity 0.80s, visibility 0.80s;
+}
+.loader {
+    display: block;
+    --height-of-loader: 1rem;
+    width: 130px;
+    height: var(--height-of-loader);
+    border-radius: 30px;
+    background-color: var(--primario);
+    position: relative;
   }
+  
+  .loader::before {
+    content: "";
+    position: absolute;
+    background: var(--acento);
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    border-radius: 30px;
+    animation: moving 5s ease-in ;
+  }
+  
+  
+  @keyframes moving {
+    100% {
+      width: 100%;
+    }
+  }
+.cargada {
+    opacity: 0;
+    visibility: hidden;
+}
 
-
-  header{
+header{
     background-color: var(--primario-luz2);
     padding: 0.5rem 1rem;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-  }
+}
 
 
-  header button{
+header button{
     background-color: var(--acento);
     size: 0.5rem;
-  }
+}
   
-  header input{
+header input{
     background-color: var(--secundario-luz1);
     width: 28%;
     padding: 10px;
     flex-shrink: 0;
     border-radius: 15px;
-  }
+}
 
-  footer{
+.separador{
+    height: 1000px;
+    width: auto;
+}
 
-  }
+footer{
 
+}
+/* 
   footer img{
     width: 16.953rem;
     height: 12.435rem;
-  }
+  } */
+
+
+
+#Joystick {
+    position: relative;
+    top: 126px;
+    left: 1100px;
+    z-index: -1;
+}
+
+footer > section {
+    background: var(--primario-luz1);
+    display: flex;
+    width: auto;
+    height: 346px;
+    padding: 36px 170px;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-shrink: 0;
+}
+
+#listas{
+    height: 100%;
+    width: 69%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr 0.5fr;
+    grid-column-gap: 10px;
+    grid-area: auto;
+}
+
+.lista {
+    background-color: aqua;
+    border: solid red;
+}
+
+#infoFooter{
+    grid-area: 2 / 1 / 3 / 4;
+}
+
+#socialsFooter{
+    align-self: center;
+    height: 85%;
+    width: 33%;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(4, 0.5fr);
+    grid-template-rows: repeat(3, 0.5fr);
+    grid-column-gap: 5px;
+    grid-template-areas: ".   titulo titulo ." "icons icons icons icons"  ".    piola piola  .";
+}
+
+#icons{
+    display: flex;
+    align-items: center;
+    background: blueviolet;
+    justify-content: space-evenly;
+    grid-area: icons;
+}
+
+#icons a>img {
+    width: 100%;
+    height: 100%;
+}
+
+#icons a{
+    width: 15%;
+}
+
+#titlesocials{
+    grid-area: titulo;
+}
+
+#piolagames{
+    grid-area: piola;
+}
+
