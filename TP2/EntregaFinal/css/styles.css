@@ -135,11 +135,52 @@ meter {
     --verde : hsl(119, 57%, 46%);
     --rojo : hsl(0, 71%, 34%);
 
+    --fuente-principal: 'Nunito';
+
+    --fw-principal: 900;
+    --fw-links: 700;
+    --fw-parrafos: 400;
+
+    --font-size-muygrande: 22px;
+    --font-size-grande: 19px;
+    --font-size-mediano: 16px;
+    --font-size-chico: 14px;
+
+}
+h1{
+    font-weight: var(--fw-principal);
+    font-size: var(--font-size-muygrande);
+}
+
+h2{
+    font-weight: var(--fw-principal);
+    font-size: var(--font-size-grande);
+}
+
+h3{
+    font-weight: var(--fw-principal);
+    font-size: var(--font-size-mediano);
+}
+
+p{
+    font-weight: var(--fw-parrafos);
+    font-size: var(--font-size-chico);
+}
+
+a{
+    font-weight: var(--fw-links);
+    color: var(--acento);
+}
+a:active, a:hover, a:focus{
+    text-decoration: underline;
 }
 
 body{
+    color: var(--secundario);
+    font-family: var(--fuente-principal);
     background-color: var(--primario);
 }
+
 .paginaInicial{
     position: fixed;
     top: 0;
@@ -154,6 +195,7 @@ body{
     transition: opacity 0.80s, visibility 0.80s;
 }
 .loader {
+    top:21px;
     display: block;
     --height-of-loader: 1rem;
     width: 130px;
@@ -184,6 +226,38 @@ body{
 .cargada {
     opacity: 0;
     visibility: hidden;
+} 
+
+.spinner {
+    background-image: linear-gradient(rgb(186, 66, 255) 35%,var(--secundario-sombra2));
+    width: 100px;
+    height: 100px;
+    animation: spinning82341 1.7s linear infinite;
+    text-align: center;
+    border-radius: 50px;
+    filter: blur(1px);
+    box-shadow: 0px -5px 20px 0px var(--acento), 0px 5px 20px 0px var(--secundario-sombra2);
+  }
+  
+.spinner1 {
+    background-color: rgb(36, 36, 36);
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    filter: blur(10px);
+  }
+  
+@keyframes spinning82341 {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+#logoInicial{
+    position: relative;
+    align-self: center;
+    top: 88px;
+    left: 14px;
+    z-index: 1;
 }
 
 header{
@@ -207,6 +281,9 @@ header input{
     padding: 10px;
     flex-shrink: 0;
     border-radius: 15px;
+}
+#logo:hover{
+    size: 1rem;
 }
 
 .separador{
@@ -237,7 +314,7 @@ footer > section {
     display: flex;
     width: auto;
     height: 346px;
-    padding: 36px 170px;
+    padding: 45px 150px;
     justify-content: space-between;
     align-items: flex-start;
     flex-shrink: 0;
@@ -249,42 +326,69 @@ footer > section {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr 0.5fr;
-    grid-column-gap: 10px;
     grid-area: auto;
 }
 
 .lista {
-    background-color: aqua;
-    border: solid red;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.lista li{
+    color: var(--secundario-luz1);
+}
+.lista li:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.lista:first-child{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 0.1fr 1fr;
+}
+#ul1{
+    grid-area: 2 / 1 / 3 / 2;
+}
+#ul2{
+    grid-area: 2 / 2 / 3 / 3;
 }
 
 #infoFooter{
     grid-area: 2 / 1 / 3 / 4;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
 
 #socialsFooter{
     align-self: center;
-    height: 85%;
     width: 33%;
     display: grid;
     align-items: center;
     grid-template-columns: repeat(4, 0.5fr);
-    grid-template-rows: repeat(3, 0.5fr);
-    grid-column-gap: 5px;
-    grid-template-areas: ".   titulo titulo ." "icons icons icons icons"  ".    piola piola  .";
+    grid-template-rows: repeat(3, 60px);
+    grid-template-areas:
+        ". titulo titulo ."
+        "icons icons icons icons"
+        ". piola piola .";
 }
 
 #icons{
     display: flex;
     align-items: center;
-    background: blueviolet;
-    justify-content: space-evenly;
+    justify-content: center;
     grid-area: icons;
 }
 
-#icons a>img {
+#icons a>svg {
     width: 100%;
     height: 100%;
+}
+
+#icons a>svg:hover{
+    fill: var(--acento-luz1)
 }
 
 #icons a{
@@ -293,9 +397,12 @@ footer > section {
 
 #titlesocials{
     grid-area: titulo;
+    padding-inline: 1rem;
+    text-align: center;
 }
 
 #piolagames{
     grid-area: piola;
+    text-align: center;
 }
 
