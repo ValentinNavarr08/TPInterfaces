@@ -108,7 +108,7 @@ meter {
     box-sizing: border-box;
 }
 
-/* Variables */
+/*------------------- VARIABLES ---------------------*/
 
 :root {
     --primario : hsl(233, 25%, 6%);
@@ -147,6 +147,8 @@ meter {
     --font-size-chico: 14px;
 
 }
+
+/*------------------- ELEMENTOS GENERALES ---------------------*/
 h1{
     font-weight: var(--fw-principal);
     font-size: var(--font-size-muygrande);
@@ -180,7 +182,27 @@ body{
     font-family: var(--fuente-principal);
     background-color: var(--primario);
 }
+/*------------------- PAGINA INCIO ---------------------*/
+#botonRegistrarse {
+    color: var(--primario);
+    border-radius: 10px;
+    border-color: var(--acento);
+    background-color:var(--secundario);
+    box-shadow: 0 0 40px 40px var(--acento) inset, 0 0 0 0 var(--acento);
+    display: flex;
+    width: 325px;
+    padding: 5px 18px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 150ms ease-in-out;
+} 
+ #botonRegistrarse:hover {
+    box-shadow: 0 0 10px 0 var(--acento) inset, 0 0 10px 4px var(--acento);
+  }
 
+/*------------------- PAGINA CARGA ---------------------*/
 .paginaInicial{
     position: fixed;
     top: 0;
@@ -260,6 +282,7 @@ body{
     z-index: 1;
 }
 
+/*------------------- HEADER ---------------------*/
 header{
     background-color: var(--primario-luz2);
     padding: 0.5rem 1rem;
@@ -286,11 +309,120 @@ header input{
     size: 1rem;
 }
 
+
+#Comprar {
+    position: relative;
+    margin: 50px auto;
+    height: 80px;
+    width: 220px;
+    z-index: 4;
+    line-height: 80px;
+    text-align: center;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    box-sizing: border-box;
+    background: var(--acento);
+    background-size: 400%;
+}
+#Comprar::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(to right, var(--acento), var(--acento-luz3), var(--acento)),var(--acento-sombra2);
+    background-size: 400%;
+    border-radius: 40px;
+    opacity: 0;
+    transition: all .5s;
+}
+#Comprar:hover {
+    animation: bckgrd 8s linear infinite;
+}
+#Comprar:hover::after {
+    opacity: 1;
+    filter: blur(20px);
+    animation: bckgrd 8s linear infinite;
+}
+@keyframes bckgrd {
+    0% {
+        background-position: 0%;
+    }
+    100% {
+        background-position: 400%;
+    }
+}
+/*------------------- CONTENIDO ---------------------*/
 .separador{
     height: 1000px;
     width: auto;
 }
 
+#Enviar {
+    margin:auto;
+    position: relative;
+    background: transparent;
+    border-radius: 5px;
+    line-height: 80px;
+    text-align: center;
+    color: white;
+    font-size: 1.4rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    width: 220px;
+    height: 80px;
+    transition: .5s;
+    border: 2px solid var(--acento);
+    overflow: hidden;
+}
+#Enviar::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: white;
+    width: 60px;
+    height: 100%;
+    left: 0;
+    top: 0;
+    opacity: .5;
+    filter: blur(30px);
+    transform: translateX(-130px) skewX(-15deg);
+}
+#Enviar::after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: white;
+    width: 50px;
+    height: 100%;
+    top: 0;
+    left: 30px;
+    opacity: 0;
+    filter: blur(30px);
+    transform: translate(-100px) skewX(-15dex)
+}
+#Enviar:hover {
+    background: var(--acento-sombra1);
+    cursor: pointer;
+}
+#Enviar:hover::before {
+    transform: translateX(300px) skewX(-15deg);
+    opacity: .8;
+    transition: .7s;
+}
+#Enviar:hover::after {
+    transform: translateX(300px) skewX(-15deg);
+    opacity: 1;
+    transition: .7s;
+}
+
+ /*------------------- FOOTER ---------------------*/
 footer{
 
 }
