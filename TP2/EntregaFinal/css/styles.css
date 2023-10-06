@@ -183,23 +183,171 @@ body{
     background-color: var(--primario);
 }
 /*------------------- PAGINA INCIO ---------------------*/
-#botonRegistrarse {
+
+#iniciarSesionCaja{
+    margin: auto;
+    margin-top: 40px;
+    display: flex;
+    width: 523px;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 10px;
+    background: var(--primario-luz1);
+}
+
+.seleccion{
+    display: flex;
+    height: 40px;
+    align-items: flex-start;
+    flex-shrink: 0;
+    align-self: stretch;
+    border-radius: 10px 10px 0px 0px;
+    
+}
+
+.seleccion > button{
+    color: var(--secundario);
+    font-family: Nunito;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 28px;
+    width: 50%;
+    height: 100%;
+    text-align: center;
+    border-radius: 10px 0px 0px 0px;
+    cursor: pointer;
+}
+.seleccion > button:last-child{
+    border-radius: 0px 10px 0px 0px;
+}
+
+
+.botonActivo{
+    border-bottom: 1px solid var(--secundario);
+    background: var(--acento-luz4);
+}
+
+#iniciarSesionCaja > section{
+    display: flex;
+    padding: 20px 50px;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    align-self: stretch;
+    flex-direction: column;
+}
+.ocultarSection{
+    display: none !important;
+}
+
+#iniciarSesionCaja > button{
+    align-items: center;
+}
+
+.campo{
+    align-self: center;
+}
+
+.campo > input{
+    display: flex;
+    width: 300px;
+    height: 28px;
+    padding: 6px 12px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 4px;
+    align-self: stretch;
+    border-radius: 4px;
+    border: 1px solid var(--Acento-2, #9589C8);
+    background: #FFF;
+}
+
+#mini-link{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.rayita{
+    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 2px solid black;
+    padding: 6px;
+    height: 110px;
+}
+
+.botonForm {
     color: var(--primario);
     border-radius: 10px;
     border-color: var(--acento);
     background-color:var(--secundario);
     box-shadow: 0 0 40px 40px var(--acento) inset, 0 0 0 0 var(--acento);
     display: flex;
-    width: 325px;
+    width: 300px;
     padding: 5px 18px;
     justify-content: center;
     align-items: center;
     gap: 10px;
     cursor: pointer;
     transition: all 150ms ease-in-out;
+    align-self: center;
 } 
- #botonRegistrarse:hover {
+.botonForm:hover {
     box-shadow: 0 0 10px 0 var(--acento) inset, 0 0 10px 4px var(--acento);
+  }
+
+  .signup-google {
+    align-self: center;
+    display: flex;
+    align-items: center;
+    width: 300px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: var(--secundario-sombra2);
+    text-decoration: none;
+    padding: 8px;
+    box-shadow: 0 10px 20px -5px rgba(76, 110, 244, 0.9);
+  }
+  .signup-google-icon {
+    width: 60px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+  }
+  .signup-google-text {
+    color: white;
+    font-weight: 500;
+    display: block;
+    margin: 0 auto;
+  }
+  .signup-or {
+    color: #363A40;
+    display: block;
+    text-align: center;
+    position: relative;
+    margin-bottom: 55px;
+  }
+  .signup-or-text {
+    display: inline-block;
+    padding: 5px 20px;
+    background-color: white;
+    position: relative;
+    font-size: 14px;
+  }
+  .signup-or:before {
+    content: "";
+    height: 1px;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background-color: #999;
+    transform: translateY(-50%);
   }
 
 /*------------------- PAGINA CARGA ---------------------*/
@@ -363,6 +511,30 @@ header input{
     height: 1000px;
     width: auto;
 }
+
+.contenido{
+    width: auto;
+    height: auto;   
+
+}
+
+.contenedor-carru{
+    padding: 10px 40px;
+    height: 160px;
+    position: relative;
+}
+
+.carruse--{
+    display: flex;
+    height: 140px;
+    width: auto;
+    position: absolute;
+    flex-direction: row;
+}
+.card{
+    height: 140px;
+}
+
 
 #Enviar {
     margin:auto;
