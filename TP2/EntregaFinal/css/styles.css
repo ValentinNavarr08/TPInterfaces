@@ -508,7 +508,7 @@ header input{
 }
 /*------------------- CONTENIDO ---------------------*/
 .separador{
-    height: 1000px;
+    height: 10px;
     width: auto;
 }
 
@@ -710,3 +710,255 @@ footer > section {
     text-align: center;
 }
 
+.blocke{
+    display: block;
+    margin-top: 1px;
+    
+}
+
+
+h4,h2, small, a {
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    text-decoration: none;
+}
+
+.carousel{
+    width: 90%;
+    margin-top: 0px;
+  
+}
+
+@media (min-width:768px) {
+   .carousel{
+    margin: 0px 60px;
+   }
+}
+
+
+.carrusel-list{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    height: 304px;
+    padding: 0px 0px;
+    margin: 0px auto;
+    max-width: 90vw;
+    overflow: hidden;
+    margin-top: 1px;
+    
+    
+}
+.secciones{
+    padding-bottom: 200px;
+}
+
+.carousel h2{
+    position: absolute;
+    line-height: 38px;
+    padding-bottom: 0px;
+    opacity: .9;
+    text-transform: uppercase;
+    font-weight: 600;
+    text-align:left;
+    color: white;
+    margin-left: 0px;
+    margin-top: 25px;
+    
+    
+}
+
+
+.titleaccion{
+position: absolute;
+left: 130px;
+top: 310px;
+height: 50px;
+width: 60px;
+}
+.titlecarreras{
+position: absolute;
+left: 165px;
+top: 522px;
+height: 36px;
+width: 50px;
+}
+.titledeportes{
+    position: absolute;
+    left: 163px;
+    top: 708px;
+    height: 50px;
+    width: 60px;
+}
+.titledisparos{
+    position: absolute;
+    left: 155px;
+    top: 908px;
+    height: 50px;
+    width: 60px;
+}
+.titleaventura{
+    position: absolute;
+    left: 160px;
+    top: 1108px;
+    height: 50px;
+    width: 60px;
+}
+.titlebelleza{
+    position: absolute;
+    left: 147px;
+    top: 1305px;
+    height: 60px;
+    width: 45px;
+}
+.titleterror{
+    position: absolute;
+    left: 137px;
+    top: 1508px;
+    height: 50px;
+    width: 60px;
+}
+.titlepuzzle{
+    position: absolute;
+    left: 137px;
+    top: 1708px;
+    height: 50px;
+    width: 60px;
+}
+
+
+.carrusel-track {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    transition: 0.3s ease-in-out; 
+    
+    
+   
+}
+
+.carrusel{
+    position: relative;
+    width: 250px;
+    padding: 10px;
+    float: left;
+    margin: -10px;
+    display: flex;
+    height: 100%;
+    line-height: 120px;
+    box-sizing: border-box;
+}
+/* 
+.carrusel-track-sugerencias {
+    position: relative;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    transition: 0.3s ease-in-out; 
+    
+    
+   
+}
+.carrusel-sugerencias{
+    position: relative;
+    width: 200px;
+    padding: 10px;
+    float: left;
+    margin: -10px;
+    display: flex;
+    height: 100%;
+    line-height: 120px;
+    box-sizing: border-box;
+}
+.imggrande{
+    width: 750px;
+    height: 200px;
+    
+}
+*/
+
+.carrusel h4{
+    position: absolute;
+    z-index: 1;
+    font-size: 22px;
+    line-height: 23px;
+    color: white;
+    padding: 15px;
+}
+
+.carrusel h4 small {
+    font-size: 15px;
+    display: block;
+}
+
+.carrusel a img{
+    object-fit: cover;
+    height: 140px;
+   
+    border-radius: 15px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+    transition: .3s ease-in-out;
+    
+    
+}
+
+#pago{
+    position: absolute;
+    border-color: white;
+}
+.precio{
+    position: absolute;
+    left: 25px;
+    rotate: 315deg;
+    top: -16px;
+    font-size: 18px;
+    color: #37267D;
+    
+}
+
+@media(min-width:768px){
+    .carrusel{
+        width: 275px;
+    }
+    .carrusel a img {
+        width: 250px;
+    }
+}
+
+.carrusel-arrow{
+    border-radius: 30px;
+    background-color: white;
+    position: absolute;
+    z-index: 4;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border: 0;
+    cursor: pointer;
+    top: 105px;
+}
+
+.carrusel-arrow:focus{
+    outline: 0;
+}
+
+.carrusel-arrow svg{
+    width: 12px;
+    height: 100%;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.carrusel-prev{
+    left: 0;
+}
+
+.carrusel-next{
+    right: 0px;
+}
