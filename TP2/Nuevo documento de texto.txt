@@ -1,0 +1,5 @@
+-Responsive 1er pag
+-3er pagina
+-Hacer el carusel de destacados y animarlo
+-Menu compras
+-Retocar Hover
