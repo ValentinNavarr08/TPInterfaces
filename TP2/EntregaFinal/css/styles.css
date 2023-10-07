@@ -146,6 +146,9 @@ meter {
     --font-size-mediano: 16px;
     --font-size-chico: 14px;
 
+    --handle-size: 3rem;
+    --img-gap: .25rem
+
 }
 
 /*------------------- ELEMENTOS GENERALES ---------------------*/
@@ -434,7 +437,7 @@ footer{
 
 
 
-#Joystick {
+  #Joystick {
     position: relative;
     top: 126px;
     left: 1100px;
@@ -575,7 +578,7 @@ a{
     height: 304px;
     padding: 0px 0px;
     margin: 0px auto;
-    max-width: 90vw;
+    max-width: 83vw; /*//////////////////////////*/
     overflow: hidden;
     margin-top: 1px;
     
@@ -583,6 +586,7 @@ a{
 }
 .secciones{
     padding-bottom: 200px;
+    margin-left: 50px; /*//////////////////////////*/
 }
 
 .carousel h2{
@@ -603,57 +607,57 @@ a{
 
 .titleaccion{
 position: absolute;
-left: 130px;
-top: 310px;
+left: 178px;
+top: 446px;
 height: 50px;
 width: 60px;
 }
 .titlecarreras{
 position: absolute;
-left: 165px;
-top: 522px;
+left: 215px;
+top: 660px;
 height: 36px;
 width: 50px;
 }
 .titledeportes{
     position: absolute;
-    left: 163px;
-    top: 708px;
+    left: 213px;
+    top: 845px;
     height: 50px;
     width: 60px;
 }
 .titledisparos{
     position: absolute;
-    left: 155px;
-    top: 908px;
+    left: 207px;
+    top: 1045px;
     height: 50px;
     width: 60px;
 }
 .titleaventura{
     position: absolute;
-    left: 160px;
-    top: 1108px;
+    left: 212px;
+    top: 1246px;
     height: 50px;
     width: 60px;
 }
 .titlebelleza{
     position: absolute;
-    left: 147px;
-    top: 1305px;
-    height: 60px;
-    width: 45px;
+    left: 199px;
+    top: 1440px;
+    height: 55px;
+    width: 40px;
 }
 .titleterror{
     position: absolute;
-    left: 137px;
-    top: 1508px;
+    left: 188px;
+    top: 1648px;
     height: 50px;
     width: 60px;
 }
 .titlepuzzle{
     position: absolute;
-    left: 137px;
-    top: 1708px;
+    left: 187px;
+    top: 1845px;
     height: 50px;
     width: 60px;
 }
@@ -681,6 +685,74 @@ width: 50px;
     height: 100%;
     line-height: 120px;
     box-sizing: border-box;
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.carrusel img:hover{
+    transition: 0.2s ease-in-out;
+    border: 2.5px solid var(--degrade, #6842FF);
+    background: rgba(151, 71, 255, 0.02);
+    backdrop-filter: blur(2px);
+    
+}
+
+.agregarcart{
+  
+   position: relative;
+    height: 40px;
+    width: 40px;
+    left: 208px;
+    top: -23px;
+    transition: 0.3s;
+   
+}
+.agregadocart{
+    position: relative;
+    height: 40px;
+    width: 40px;
+    left: 208px;
+    top: -23px;
+    transition: 0.3s;
+}
+.carthover{
+  
+    position: absolute;
+    
+    height: 140px;
+    width: 250px;
+    border-radius: 15px;
+    opacity: 0;
+}
+.carthover:hover{
+    opacity: 1;
+    transition: 0.2s ease-in-out;
+    border: 2.5px solid var(--degrade, #6842FF);
+    background: rgba(151, 71, 255, 0.02);
+    backdrop-filter: blur(2px);
+}
+.carthover h1{
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 0;
+    transition: 0.3s;
+    font-size: 19px;
+    color: var(--secundario);
+}
+
+.carthover h1:hover{
+    opacity: 1;
+}
+
+.carrusel a:hover{
+   
 }
 /* 
 .carrusel-track-sugerencias {
@@ -726,7 +798,7 @@ width: 50px;
     display: block;
 }
 
-.carrusel a img{
+.carrusel a img:last-child{
     object-fit: cover;
     height: 140px;
    
@@ -755,7 +827,7 @@ width: 50px;
     .carrusel{
         width: 275px;
     }
-    .carrusel a img {
+    .carrusel a img:last-child {
         width: 250px;
     }
 }
@@ -789,4 +861,216 @@ width: 50px;
 
 .carrusel-next{
     right: 0px;
+}
+
+
+/*@media (min-width:700px) {
+    footer > section {
+        background:var(--primario-luz1);
+    display: flex;
+    width: auto;
+    height: 346px;
+    padding: 45px 30px;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+    flex-direction: column;
+
+    }
+    
+    #listas{
+    height: 100%;
+    width: 69%;
+    display: grid;
+    grid-template-columns: 1fr 0.5fr;
+    grid-template-rows: repeat(3, 1fr);
+    grid-area: auto;
+    padding: 0px 5px;
+    }
+}
+
+
+@media (max-width:1480px){
+#Joystick{
+    left: 900px;
+}
+}
+@media (max-width:1280px){
+    #Joystick{
+        left: 400px;
+    }
+    }
+ @media (max-width:780px){
+        #Joystick{
+           display: none;
+        }
+       
+        footer > section {
+            background: var(--primario-luz1);
+            display: flex;
+            width: auto;
+            height: 346px;
+            padding: 45px 150px;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-shrink: 0;
+        }
+        
+        #listas{
+            height: 100%;
+            width: 69%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: 1fr 0.5fr;
+            grid-area: auto;
+        }
+} */
+/*----------------------- CARRUSEL GRANDE --------------*/
+.container {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    margin-top: 20px;
+    background-color: var(--acento-luz3);
+    border-radius: 20px;
+  }
+  
+  .slider {
+    --items-per-screen: 2;
+    --slider-index: 3;
+    display: flex;
+    flex-grow: 1;
+    margin: 0 var(--img-gap);
+    transform: translateX(calc(var(--slider-index) * -100%));
+    transition: transform 250ms ease-in-out;
+    
+  }
+  
+  .slider > img {
+    flex: 0 0 calc(100% / var(--items-per-screen));
+    max-width: calc(100% / var(--items-per-screen));
+    aspect-ratio: 16 / 9;
+    padding: var(--img-gap);
+    border-radius: 1rem;
+  }
+  
+  .handle {
+    border: none;
+    border-radius: 1rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    background-color: rgba(255, 255, 255, .25);
+    z-index: 10;
+    margin: var(--img-gap) 0;
+    width: var(--handle-size);
+    cursor: pointer;
+    font-size: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    line-height: 0;
+    transition: background-color 150ms ease-in-out;
+  }
+  
+  .left-handle {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  .right-handle {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  
+  .handle:hover,
+  .handle:focus {
+    background-color: rgba(255, 255, 255, .5);
+  }
+  
+  .text {
+    transition: transform 150ms ease-in-out;
+  }
+  
+  .handle:hover .text,
+  .handle:focus .text {
+    transform: scale(1.2);
+  }
+  
+  .progresodiv {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem calc(var(--img-gap) * 2 + var(--handle-size));
+    align-items: center;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin: 0;
+  }
+  
+  .progress-bar {
+    display: flex;
+    gap: .25rem;
+  }
+  
+  .progress-item {
+    flex: 0 0 1.5rem;
+    min-width: 1.5rem;
+    height: .5rem;
+    background-color: var(--secundario-luz1);
+  }
+  
+  .progress-item.active {
+    background-color: var(--acento);
+  }
+  
+  @media (max-width: 1000px) {
+    .slider {
+      --items-per-screen: 3;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .slider {
+      --items-per-screen: 2;
+    }
+  }
+  
+  body {
+    background-color: #333;
+    color: white;
+  }
+
+.grande {
+    flex: 0 0 calc(100% / var(--items-per-screen));
+    max-width: calc(100% / var(--items-per-screen));
+    display: flex;
+    aspect-ratio: 21/9;
+  }
+
+.grande img{
+    height: 500px;
+    width: 700px;
+    border-radius: 20px;
+}  
+
+.chico{
+    aspect-ratio: 21/9;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 5px;
+    grid-row-gap: 5px;
+    flex: 0 0 calc(100% / var(--items-per-screen));
+    max-width: calc(100% / var(--items-per-screen));
+    padding: var(--img-gap);
+    border-radius: 1rem;
+   
+}
+
+.chico img{
+   width: 340px;
+   height: 140px;
+   border-radius: 15px;
 }
