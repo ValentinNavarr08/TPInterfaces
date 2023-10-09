@@ -631,10 +631,10 @@ header{
 }
 
 
-header button{
+/*header button{
     background-color: var(--acento);
     size: 0.5rem;
-}
+}*/
   
 header input{
     background-color: var(--secundario-luz1);
@@ -648,15 +648,18 @@ header input{
 }
 
 #menuPersonal{
-    background-color: #0dc5f8;
+    background-color: var(--primario-sombra1);
     position: absolute;
     top: 100%;
     right: 0%;
     width: 320px;
-    z-index: 4;
+    z-index: 6;
 }
-.sub-menuPersonal > div{
-    border: 5px solid red;
+.sub-menuPersonal > div,
+.sub-menuPersonal > div >ul>li
+{
+    border-top: 1px  gray;
+    border-bottom: 1px gray;
     padding: 2px 10px;
 
 }
@@ -666,6 +669,7 @@ header input{
 
 .buttonWrapper {
     position: relative;
+    align-self: center;
   }
   
   .customButton {
@@ -729,21 +733,23 @@ header input{
 
 
 #Enviar {
-    margin:auto;
+    margin: auto;
     position: relative;
     background: transparent;
     border-radius: 5px;
-    line-height: 80px;
+    line-height: 20px;
     text-align: center;
     color: white;
     font-size: 1.4rem;
     letter-spacing: 2px;
     text-transform: uppercase;
-    width: 220px;
-    height: 80px;
+    width: 111px;
+    height: 38px;
     transition: .5s;
     border: 2px solid var(--acento);
     overflow: hidden;
+    left: 394px;
+
 }
 #Enviar::before {
     content: '';
@@ -957,6 +963,12 @@ a{
 }
 
 
+#button-prev{
+    display: none;
+}
+#button-next{
+    display: none;
+}
 .carrusel-list{
     position: absolute;
     display: flex;
@@ -966,7 +978,7 @@ a{
     padding: 0px 0px;
     margin: 0px auto;
     max-width: 91vw; /*//////////////////////////*/
-    overflow: hidden;
+    overflow: scroll;
     margin-top: 1px;
 }
 .secciones{
@@ -1157,6 +1169,12 @@ width: 50px;
 }
 
 @media (max-width:415px) {
+    #button-prev{
+        display: block;
+    }
+    #button-next{
+        display: block;
+    }
     .carrusel{
         position: relative;
         width: 270px;
@@ -1199,6 +1217,12 @@ width: 50px;
 }
 
 @media (max-width:681px)  {
+    #button-prev{
+        display: block;
+    }
+    #button-next{
+        display: block;
+    }
     #icons{
         display: flex;
         align-items: center;
@@ -1365,6 +1389,12 @@ width: 50px;
 }
 
 @media(min-width:768px){
+    #button-prev{
+        display: block;
+    }
+    #button-next{
+        display: block;
+    }
     .carrusel{
         width: 275px;
     }
@@ -1666,12 +1696,24 @@ width: 50px;
   }
   
   @media (max-width: 1000px) {
+    #button-prev{
+        display: block;
+    }
+    #button-next{
+        display: block;
+    }
     .slider {
       --items-per-screen: 3;
     }
   }
   
   @media (max-width: 500px) {
+    #button-prev{
+        display: block;
+    }
+    #button-next{
+        display: block;
+    }
     .slider {
       --items-per-screen: 2;
     }
@@ -1829,6 +1871,7 @@ width: 50px;
     }
     
     #socialsFooter{
+        display: none;
         align-self: center;
         width: 33%;
         display: grid;
@@ -2690,4 +2733,15 @@ background: var(--Secundario-1, rgba(255, 255, 255, 0.90));
 
 .starviolet svg{
     fill: red;
+}
+
+#compras{
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    flex-direction: column;
+}
+
+#comprar{
+    align-self: center;
 }
