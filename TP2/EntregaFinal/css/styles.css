@@ -618,6 +618,7 @@ body{
     z-index: 1;
 }
 
+
 /*------------------- HEADER ---------------------*/
 header{
     background-color: var(--primario-luz2);
@@ -631,17 +632,8 @@ header{
 
 
 header button{
-    color: var(--primario);
-    border-radius: 10px;
-    border-color: var(--acento);
-    background-color: var(--secundario);
-    box-shadow: 0 0 40px 40px var(--acento) inset, 0 0 0 0 var(--acento);
-    width: 300px;
-    padding: 5px 18px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
+    background-color: var(--acento);
+    size: 0.5rem;
 }
   
 header input{
@@ -795,6 +787,19 @@ header input{
 }
 
  /*------------------- FOOTER ---------------------*/
+.footerjuego{
+    position: absolute;
+    width: 100%;
+    bottom: -2800px;
+
+}
+/* 
+  footer img{
+    width: 16.953rem;
+    height: 12.435rem;
+  } */
+
+
 
   #Joystick {
     position: relative;
@@ -808,19 +813,22 @@ footer > section {
     display: flex;
     width: auto;
     height: 346px;
-    padding: 45px 150px;
+    padding:45px 150px;
     justify-content: space-between;
     align-items: flex-start;
     flex-shrink: 0;
+    margin-top: 90px;
 }
 
 #listas{
     height: 100%;
-    width: 69%;
+    width: 85%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: 1fr 0.5fr;
     grid-area: auto;
+    left: 20px;
+    position: absolute;
 }
 
 .lista {
@@ -854,6 +862,8 @@ footer > section {
     display: flex;
     align-items: flex-end;
     justify-content: flex-end;
+    top: -365px;
+    position: relative;
 }
 
 #socialsFooter{
@@ -867,6 +877,9 @@ footer > section {
         ". titulo titulo ."
         "icons icons icons icons"
         ". piola piola .";
+    top: 100px;
+    position: relative;
+    left: -150px;
 }
 
 #icons{
@@ -874,11 +887,17 @@ footer > section {
     align-items: center;
     justify-content: center;
     grid-area: icons;
+    left: -60px;
+    top: 14px;
+    position: absolute;
+    height:25px;
+    width: 325px;
 }
 
 #icons a>svg {
-    width: 100%;
-    height: 100%;
+    width: 50px;
+    height: 55px;
+    margin-left: 15px;
 }
 
 #icons a>svg:hover{
@@ -893,16 +912,25 @@ footer > section {
     grid-area: titulo;
     padding-inline: 1rem;
     text-align: center;
+    margin-bottom: -100px;
+    left:40px;
+    top: -40px;
+    position: relative;
 }
 
 #piolagames{
     grid-area: piola;
     text-align: center;
+    position: relative;
+    left: 150px;
+    top: -35px;
 }
 
 .blocke{
     display: block;
     margin-top: 1px;
+    left: -30px;
+    position: relative;
     
 }
 
@@ -919,7 +947,7 @@ a{
 .carousel{
     width: 90%;
     margin-top: 0px;
-  
+    
 }
 
 @media (min-width:768px) {
@@ -937,11 +965,9 @@ a{
     height: 304px;
     padding: 0px 0px;
     margin: 0px auto;
-    max-width: 83vw; /*//////////////////////////*/
+    max-width: 91vw; /*//////////////////////////*/
     overflow: hidden;
     margin-top: 1px;
-    
-    
 }
 .secciones{
     padding-bottom: 200px;
@@ -959,66 +985,64 @@ a{
     color: white;
     margin-left: 0px;
     margin-top: 25px;
-    
-    
 }
 
 
 .titleaccion{
 position: absolute;
-left: 178px;
-top: 446px;
-height: 50px;
-width: 60px;
+left: 128px;
+top: 22px;
+height: 30px;
+width: 40px;
 }
 .titlecarreras{
 position: absolute;
-left: 215px;
-top: 660px;
+left: 160px;
+top: 216px;
 height: 36px;
 width: 50px;
 }
 .titledeportes{
     position: absolute;
-    left: 213px;
-    top: 845px;
-    height: 50px;
-    width: 60px;
+    left: 153px;
+    top: 413px;
+    height: 40px;
+    width: 50px;
 }
 .titledisparos{
     position: absolute;
-    left: 207px;
-    top: 1045px;
+    left: 147px;
+    top: 605px;
     height: 50px;
     width: 60px;
 }
 .titleaventura{
     position: absolute;
-    left: 212px;
-    top: 1246px;
+    left: 156px;
+    top: 802px;
     height: 50px;
     width: 60px;
 }
 .titlebelleza{
     position: absolute;
-    left: 199px;
-    top: 1440px;
-    height: 55px;
-    width: 40px;
+    left: 139px;
+    top: 1007px;
+    height: 45px;
+    width: 30px;
 }
 .titleterror{
     position: absolute;
-    left: 188px;
-    top: 1648px;
-    height: 50px;
-    width: 60px;
+    left: 132px;
+    top: 1207px;
+    height: 45px;
+    width: 55px;
 }
 .titlepuzzle{
     position: absolute;
-    left: 187px;
-    top: 1845px;
-    height: 50px;
-    width: 60px;
+    left: 127px;
+    top: 1407px;
+    height: 45px;
+    width: 55px;
 }
 
 
@@ -1036,7 +1060,7 @@ width: 50px;
 
 .carrusel{
     position: relative;
-    width: 250px;
+    width: 230px;
     padding: 10px;
     float: left;
     margin: -10px;
@@ -1047,6 +1071,160 @@ width: 50px;
     transition: 0.3s ease-in-out;
     cursor: pointer;
 }
+
+@media (max-width:418px){
+    #listas{
+        height: 100%;
+        width: 85%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr 0.5fr;
+        grid-area: auto;
+        left: 5px;
+        position: absolute;
+    }
+    #icons{
+        display: none;
+    }
+    #titlesocials{
+        display: none;
+    }
+}
+
+
+@media (max-width:430px)  {
+    .carrusel{
+        position: relative;
+        width: 270px;
+        padding: 10px;
+        float: left;
+        margin: -10px;
+        display: flex;
+        height: 100%;
+        line-height: 120px;
+        box-sizing: border-box;
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
+    }
+    .carrusel-list{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        height: 304px;
+        padding: 0px 0px;
+        margin: 0px auto;
+        max-width: 58vw; /*//////////////////////////*/
+        overflow: hidden;
+        margin-top: 1px;
+    }
+    .blocke{
+        display: block;
+        margin-top: 1px;
+        left: 25px;
+        position: relative;
+        
+    }
+}
+
+@media (min-width:510px)  {
+    #icons{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        grid-area: icons;
+        left: 140px;
+        top: 4px;
+        position: absolute;
+        height:25px;
+        width: 325px;
+    }
+    
+    #icons a>svg {
+        width: 50px;
+        height: 55px;
+        margin-left: 15px;
+    }
+    
+    #titlesocials{
+        grid-area: titulo;
+        padding-inline: 1rem;
+        text-align: center;
+        margin-bottom: -50px;
+        left:244px;
+        position: relative;
+    }
+}
+
+@media (max-width:415px) {
+    .carrusel{
+        position: relative;
+        width: 270px;
+        padding: 10px;
+        float: left;
+        margin: -10px;
+        display: flex;
+        height: 100%;
+        line-height: 120px;
+        box-sizing: border-box;
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
+    }
+    .carrusel-list{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        height: 304px;
+        padding: 0px 0px;
+        margin: 0px auto;
+        max-width: 66vw; /*//////////////////////////*/
+        overflow: hidden;
+        margin-top: 1px;
+    }
+    .blocke{
+        display: block;
+        margin-top: 1px;
+        left: 5px;
+        position: relative;
+        
+    }
+
+    #icons{
+        display: none;
+    }
+    #titlesocials{
+        display: none;
+    }
+}
+
+@media (max-width:681px)  {
+    #icons{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        grid-area: icons;
+       
+        position: absolute;
+        
+       
+    }
+    
+    #icons a>svg {
+        width: 100%;
+        height: 100%;
+    }
+    
+    #icons a>svg:hover{
+        fill: var(--acento-luz1)
+    }
+    
+    #icons a{
+        width: 15%;
+    }
+}
+
+
 
 .carrusel img:hover{
     transition: 0.2s ease-in-out;
@@ -1170,15 +1348,19 @@ width: 50px;
 
 #pago{
     position: absolute;
-    border-color: white;
+    rotate: 46deg;
+    left: 10px;
+  
+    
 }
 .precio{
     position: absolute;
-    left: 25px;
-    rotate: 315deg;
-    top: -16px;
+    left: 30px;
+    
+    top: -18px;
     font-size: 18px;
-    color: #37267D;
+    color: var(--secundario);
+    z-index: 4;
     
 }
 
@@ -1402,8 +1584,8 @@ width: 50px;
 } 
   
   .slider > img {
-    flex: 0 0 calc(100% / var(--items-per-screen));
-    max-width: calc(100% / var(--items-per-screen));
+    flex: 0 0 calc(50% / var(--items-per-screen));
+    max-width: calc(50% / var(--items-per-screen));
     aspect-ratio: 16 / 9;
     padding: var(--img-gap);
     border-radius: 1rem;
@@ -1428,6 +1610,8 @@ width: 50px;
     line-height: 0;
     transition: background-color 150ms ease-in-out;
   }
+
+  
   
   .left-handle {
     border-top-left-radius: 0;
@@ -1506,8 +1690,8 @@ width: 50px;
   }
 
 .grande img{
-    height: 500px;
-    width: 700px;
+    height: 200px;
+    width: 1000px;
     border-radius: 20px;
 }  
 
@@ -1526,7 +1710,984 @@ width: 50px;
 }
 
 .chico img{
-   width: 340px;
-   height: 140px;
+   width: 80px;
+   height: 60px;
    border-radius: 15px;
+}
+
+
+
+
+
+
+
+
+/*--------------MOBILE FIRST HOME--------------*/
+
+
+
+
+
+@media (min-width:680px) {
+    footer{
+
+    }
+    /* 
+      footer img{
+        width: 16.953rem;
+        height: 12.435rem;
+      } */
+    
+    
+    
+      #Joystick {
+        position: relative;
+        top: 126px;
+        left: 1100px;
+        z-index: -1;
+    }
+    
+    footer > section {
+        background: var(--primario-luz1);
+        display: flex;
+        width: auto;
+        height: 396px;
+        padding: 45px 150px;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-shrink: 0;
+    }
+    
+    #listas{
+        height: 346px;
+        width: 69%;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 1fr 0.5fr;
+        grid-area: auto;
+    }
+    
+    .lista {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        left: 100%;
+        position: relative;
+    }
+    .lista li{
+        color: var(--secundario-luz1);
+    }
+    .lista li:hover{
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    .lista:first-child{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 0.1fr 1fr;
+    }
+    #ul1{
+        grid-area: 2 / 1 / 3 / 2;
+    }
+    #ul2{
+        grid-area: 2 / 2 / 3 / 3;
+    }
+    
+    #infoFooter{
+        grid-area: 2 / 1 / 3 / 4;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+        top: -50px;
+        position: relative;
+    }
+
+    #icons{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        grid-area: icons;
+        left: 200px;
+        top: 0px;
+        position: absolute;
+       
+    }
+    
+    #icons a>svg {
+        width: 100%;
+        height: 100%;
+    }
+    
+    #icons a>svg:hover{
+        fill: var(--acento-luz1)
+    }
+    
+    #icons a{
+        width: 15%;
+    }
+    
+    #socialsFooter{
+        align-self: center;
+        width: 33%;
+        display: grid;
+        align-items: center;
+        grid-template-columns: repeat(4, 0.5fr);
+        grid-template-rows: repeat(3, 60px);
+        grid-template-areas:
+            ". titulo titulo ."
+            "icons icons icons icons"
+            ". piola piola .";
+    }
+    
+    
+    
+    #titlesocials{
+        grid-area: titulo;
+        padding-inline: 1rem;
+        text-align: center;
+        left: 370px;
+    }
+    
+    #piolagames{
+        grid-area: piola;
+        text-align: center;
+    }
+    
+    .blocke{
+        display: block;
+        margin-top: 1px;
+        
+    }
+    
+    
+    h4,h2, small, a {
+        margin: 0;
+        padding: 0;
+    }
+    
+    a{
+        text-decoration: none;
+    }
+    
+    .carousel{
+        width: 90%;
+        margin-top: 0px;
+      
+    }
+    
+    @media (min-width:768px) {
+       .carousel{
+        margin: 0px 60px;
+       }
+    }
+    
+    
+    .carrusel-list{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        height: 304px;
+        padding: 0px 0px;
+        margin: 0px auto;
+        max-width: 83vw; /*//////////////////////////*/
+        overflow: hidden;
+        margin-top: 1px;
+        
+        
+    }
+    .secciones{
+        padding-bottom: 200px;
+        margin-left: 50px; /*//////////////////////////*/
+    }
+    
+    .carousel h2{
+        position: absolute;
+        line-height: 38px;
+        padding-bottom: 0px;
+        opacity: .9;
+        text-transform: uppercase;
+        font-weight: 600;
+        text-align:left;
+        color: white;
+        margin-left: 0px;
+        margin-top: 25px;
+    }
+    
+    
+    .titleaccion{
+    position: absolute;
+    left: 178px;
+    top: 2px;
+    height: 50px;
+    width: 60px;
+    }
+    .titlecarreras{
+    position: absolute;
+    left: 218px;
+    top: 219px;
+    height: 36px;
+    width: 50px;
+    }
+    .titledeportes{
+        position: absolute;
+        left: 213px;
+        top: 403px;
+        height: 50px;
+        width: 60px;
+    }
+    .titledisparos{
+        position: absolute;
+        left: 207px;
+        top: 605px;
+        height: 50px;
+        width: 60px;
+    }
+    .titleaventura{
+        position: absolute;
+        left: 212px;
+        top: 803px;
+        height: 50px;
+        width: 60px;
+    }
+    .titlebelleza{
+        position: absolute;
+        left: 199px;
+        top: 998px;
+        height: 55px;
+        width: 40px;
+    }
+    .titleterror{
+        position: absolute;
+        left: 188px;
+        top: 1205px;
+        height: 50px;
+        width: 60px;
+    }
+    .titlepuzzle{
+        position: absolute;
+        left: 187px;
+        top: 1403px;
+        height: 50px;
+        width: 60px;
+    }
+    
+    
+    .carrusel-track {
+        position: relative;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        transition: 0.3s ease-in-out; 
+        
+        
+       
+    }
+    
+    .carrusel{
+        position: relative;
+        width: 250px;
+        padding: 10px;
+        float: left;
+        margin: -10px;
+        display: flex;
+        height: 100%;
+        line-height: 120px;
+        box-sizing: border-box;
+        transition: 0.3s ease-in-out;
+        cursor: pointer;
+    }
+    
+    .carrusel img:hover{
+        transition: 0.2s ease-in-out;
+        border: 2.5px solid var(--degrade, #6842FF);
+        background: rgba(151, 71, 255, 0.02);
+        backdrop-filter: blur(2px);
+        
+    }
+    
+    .agregarcart{
+      
+       position: relative;
+        height: 40px;
+        width: 40px;
+        left: 208px;
+        top: -23px;
+        transition: 0.3s;
+       
+    }
+    .agregadocart{
+        position: relative;
+        height: 40px;
+        width: 40px;
+        left: 208px;
+        top: -23px;
+        transition: 0.3s;
+    }
+    .carthover{
+      
+        position: absolute;
+        
+        height: 140px;
+        width: 250px;
+        border-radius: 15px;
+        opacity: 0;
+    }
+    .carthover:hover{
+        opacity: 1;
+        transition: 0.2s ease-in-out;
+        border: 2.5px solid var(--degrade, #6842FF);
+        background: rgba(151, 71, 255, 0.02);
+        backdrop-filter: blur(2px);
+    }
+    .carthover h1{
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        opacity: 0;
+        transition: 0.3s;
+        font-size: 19px;
+        color: var(--secundario);
+    }
+    
+    .carthover h1:hover{
+        opacity: 1;
+    }
+    
+    .carrusel a:hover{
+       
+    }
+    /* 
+    .carrusel-track-sugerencias {
+        position: relative;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        transition: 0.3s ease-in-out; 
+        
+        
+       
+    }
+    .carrusel-sugerencias{
+        position: relative;
+        width: 200px;
+        padding: 10px;
+        float: left;
+        margin: -10px;
+        display: flex;
+        height: 100%;
+        line-height: 120px;
+        box-sizing: border-box;
+    }
+    .imggrande{
+        width: 750px;
+        height: 200px;
+        
+    }
+    */
+    
+    .carrusel h4{
+        position: absolute;
+        z-index: 1;
+        font-size: 22px;
+        line-height: 23px;
+        color: white;
+        padding: 15px;
+    }
+    
+    .carrusel h4 small {
+        font-size: 15px;
+        display: block;
+    }
+    
+    .carrusel a img:last-child{
+        object-fit: cover;
+        height: 140px;
+       
+        border-radius: 15px;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.5);
+        transition: .3s ease-in-out;
+        
+        
+    }
+    
+    #pago{
+        position: absolute;
+        rotate: 46deg;
+        left: 10px;
+      
+        
+    }
+    .precio{
+        position: absolute;
+        left: 30px;
+        
+        top: -18px;
+        font-size: 18px;
+        color: var(--secundario);
+        z-index: 4;
+        
+    }
+    
+    @media(min-width:768px){
+        .carrusel{
+            width: 275px;
+        }
+        .carrusel a img:last-child {
+            width: 250px;
+        }
+    }
+    
+    .carrusel-arrow{
+        border-radius: 30px;
+        background-color: white;
+        position: absolute;
+        z-index: 4;
+        width: 40px;
+        height: 40px;
+        text-align: center;
+        border: 0;
+        cursor: pointer;
+        top: 105px;
+    }
+    
+    .carrusel-arrow:focus{
+        outline: 0;
+    }
+    
+    .carrusel-arrow svg{
+        width: 12px;
+        height: 100%;
+        color: rgba(0, 0, 0, 0.7);
+    }
+    
+    .carrusel-prev{
+        left: 0;
+    }
+    
+    .carrusel-next{
+        right: 0px;
+    }
+    
+    
+    /*@media (min-width:700px) {
+        footer > section {
+            background:var(--primario-luz1);
+        display: flex;
+        width: auto;
+        height: 346px;
+        padding: 45px 30px;
+        justify-content: space-between;
+        align-items: center;
+        flex-shrink: 0;
+        flex-direction: column;
+    
+        }
+        
+        #listas{
+        height: 100%;
+        width: 69%;
+        display: grid;
+        grid-template-columns: 1fr 0.5fr;
+        grid-template-rows: repeat(3, 1fr);
+        grid-area: auto;
+        padding: 0px 5px;
+        }
+    }
+    
+    
+    @media (max-width:1480px){
+    #Joystick{
+        left: 900px;
+    }
+    }
+    @media (max-width:1280px){
+        #Joystick{
+            left: 400px;
+        }
+        }
+     @media (max-width:780px){
+            #Joystick{
+               display: none;
+            }
+           
+            footer > section {
+                background: var(--primario-luz1);
+                display: flex;
+                width: auto;
+                height: 346px;
+                padding: 45px 150px;
+                justify-content: space-between;
+                align-items: flex-start;
+                flex-shrink: 0;
+            }
+            
+            #listas{
+                height: 100%;
+                width: 69%;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: 1fr 0.5fr;
+                grid-area: auto;
+            }
+    } */
+    /*----------------------- CARRUSEL GRANDE --------------*/
+    .container {
+        display: flex;
+        justify-content: center;
+        overflow: hidden;
+        margin-top: 20px;
+        background-color: var(--acento-luz3);
+        border-radius: 20px;
+      }
+      
+      .slider {
+        --items-per-screen: 2;
+        --slider-index: 3;
+        display: flex;
+        flex-grow: 1;
+        margin: 0 var(--img-gap);
+        transform: translateX(calc(var(--slider-index) * -100%));
+        transition: transform 250ms ease-in-out;
+        
+      }
+      
+      .slider > img {
+        flex: 0 0 calc(100% / var(--items-per-screen));
+        max-width: calc(100% / var(--items-per-screen));
+        aspect-ratio: 16 / 9;
+        padding: var(--img-gap);
+        border-radius: 1rem;
+      }
+      
+      .handle {
+        border: none;
+        border-radius: 1rem;
+        flex-grow: 0;
+        flex-shrink: 0;
+        background-color: rgba(255, 255, 255, .25);
+        z-index: 10;
+        margin: var(--img-gap) 0;
+        width: var(--handle-size);
+        cursor: pointer;
+        font-size: 5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        line-height: 0;
+        transition: background-color 150ms ease-in-out;
+      }
+    
+      
+      
+      .left-handle {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      
+      .right-handle {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      
+      .handle:hover,
+      .handle:focus {
+        background-color: rgba(255, 255, 255, .5);
+      }
+      
+      .text {
+        transition: transform 150ms ease-in-out;
+      }
+      
+      .handle:hover .text,
+      .handle:focus .text {
+        transform: scale(1.2);
+      }
+      
+      .progresodiv {
+        display: flex;
+        justify-content: center;
+        padding: 0.5rem calc(var(--img-gap) * 2 + var(--handle-size));
+        align-items: center;
+      }
+      
+      .title {
+        font-size: 2rem;
+        margin: 0;
+      }
+      
+      .progress-bar {
+        display: flex;
+        gap: .25rem;
+      }
+      
+      .progress-item {
+        flex: 0 0 1.5rem;
+        min-width: 1.5rem;
+        height: .5rem;
+        background-color: var(--secundario-luz1);
+      }
+      
+      .progress-item.active {
+        background-color: var(--acento);
+      }
+      
+      @media (max-width: 1000px) {
+        .slider {
+          --items-per-screen: 3;
+        }
+      }
+      
+      @media (max-width: 500px) {
+        .slider {
+          --items-per-screen: 2;
+        }
+      }
+      
+      body {
+        background-color: #333;
+        color: white;
+      }
+    
+    .grande {
+        flex: 0 0 calc(100% / var(--items-per-screen));
+        max-width: calc(100% / var(--items-per-screen));
+        display: flex;
+        aspect-ratio: 21/9;
+      }
+    
+    .grande img{
+        height: 500px;
+        width: 700px;
+        border-radius: 20px;
+    }  
+    
+    .chico{
+        aspect-ratio: 21/9;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-column-gap: 5px;
+        grid-row-gap: 5px;
+        flex: 0 0 calc(100% / var(--items-per-screen));
+        max-width: calc(100% / var(--items-per-screen));
+        padding: var(--img-gap);
+        border-radius: 1rem;
+       
+    }
+    
+    .chico img{
+       width: 340px;
+       height: 140px;
+       border-radius: 15px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*----------------------------- 4 EN LINEA -----------------*/
+nav{
+    position: relative;
+    left: 150px;
+    margin-bottom: 150px;
+    display: flex;
+}
+nav ul{
+    position: relative;
+    top: 80px;
+    display: flex;
+}
+nav li{
+    background-color: var(--secundario-sombra2);
+    border-radius: 15px;
+    margin: -60px;
+    width: 180px;
+    height: 24px;
+    justify-content: center;
+ 
+}
+nav svg{
+    position: relative;
+    left: -68px;
+    top: -57px;
+}
+.sugerenciasblock{
+    position: absolute;
+    left: 1220px;
+    display: block;
+    
+}
+.cuatroenlinea{
+    position: relative;
+    left: 15%;
+    top: 120px;
+    cursor: pointer;
+    margin-bottom: -120px;
+}
+
+.descripcion{
+    position: relative;
+    top: 250px;
+}
+.descripcion h1{
+    position: relative;
+    left: 550px;
+}
+.descripcion img{
+    position: relative;
+    left: 200px;
+}
+
+.compartir{
+    margin-top: 20px;
+    margin-bottom: -10px;
+    display: flex;
+}
+.compartir label{
+position: relative;
+left: -170px;
+bottom: 1px;
+color: #0F0730;
+font-family: Nunito;
+font-size: 16px;
+cursor: pointer;
+}
+.compartir label svg{
+    position: relative;
+    left: 77px;
+    bottom: -5px;
+}
+
+.compartir img{
+    width: 50px;
+    height: 50px;
+    top: -10px;
+    left: 10px; 
+}
+#compartir{
+    position: relative;
+    width: 481px;
+height: 33px;
+    border-radius: 10px;
+border: 1px solid #FFF;
+background: rgba(255, 255, 255, 0.61);
+
+/* sombra */
+box-shadow: 1px 2px 2px 3px rgba(0, 0, 0, 0.25);
+left: 300px;
+}
+
+.descripcion p{
+    position: relative;
+width: 743px;
+height: 135px;
+left: 300px;
+top: 200px;
+color: #FFF;
+font-family: Inter;
+font-size: 24px;
+font-style: italic;
+font-weight: 400;
+line-height: 24px;
+}
+
+.controles h2{
+    position: absolute;
+    top: 580px;
+    left: 215px;
+    text-decoration:underline;
+}
+.controles img{
+    top: 260px;
+}
+.botones{
+    position: absolute;
+    top: 480px; 
+}
+.mouse{
+    position: absolute;
+}
+
+.reseñas{
+    position: absolute;
+    top: 2000px;
+    left: 200px;
+    margin-top: -340px;
+}
+.calificacion{
+    position: relative;
+    margin-bottom: 130px;
+}
+
+.calificacion h1{
+    margin-bottom: 60px;
+}
+.calificacion h2{
+    width: 142px;
+    height: 63px;
+    flex-shrink: 0;
+    color: #5335CC;
+    font-family: Inter;
+    font-size: 136px;
+   
+    font-weight: 800;
+    line-height: 24px; /* 25% */
+}
+.calificacion p{
+    margin-top: 20px;
+    left: 60px;
+    position: relative;
+    font-family: Inter;
+    font-size: 32px;
+    
+    font-weight: 400;
+    line-height: 24px; /* 75% */
+}
+.calificacion svg{
+    position: relative;
+    left: 300px;
+    top: -140px;
+}
+
+#barra5{
+    position: relative;
+    width: 251px;
+height: 6px;
+flex-shrink: 0;
+background-color: var(--secundario-sombra2);
+top: -270px;
+left: 500px;
+}
+#barra4{
+    position: relative;
+    width: 171px;
+height: 6px;
+flex-shrink: 0;
+background-color: var(--secundario-sombra2);
+top: -245px;
+left: 245px;
+}
+#barra3{
+    position: relative;
+    width: 50px;
+height: 6px;
+flex-shrink: 0;
+background-color: var(--secundario-sombra2);
+top: -193px;
+left: 70px;
+}
+#barra2{
+    position: relative;
+    width: 121px;
+height: 6px;
+flex-shrink: 0;
+background-color: var(--secundario-sombra2);
+top: -240px;
+left: 500px;
+}
+#barra1{
+    position: relative;
+    width: 11px;
+height: 6px;
+flex-shrink: 0;
+background-color: var(--secundario-sombra2);
+top: -188px;
+left: 375px;
+}
+.barras{
+    
+    position: absolute;
+}
+
+.boxopinion{
+    margin-top: -180px;
+    margin-bottom: 203px;
+}
+.boxopinion img{
+    position: relative;
+    left: 590px;
+    top: -80px;
+}
+#inputenviar{
+    display: flex;
+    width: 551px;
+    height: 79px;
+    padding: 10px;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 10px;
+    background-color: rgb(179, 179, 180);
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+.flecha{
+    position: absolute;
+    left: 510px;
+    top: 330px;
+   
+    
+}
+#inputreseña{
+    position: relative;
+padding: 10px;
+width: 551px;
+height: 159px;
+flex-shrink: 0;
+border-radius: 10px;
+background: var(--Secundario-1, rgba(255, 255, 255, 0.90));
+
+}
+
+
+.boxreseñas input{
+    margin-top: -80px;
+    display: block;
+    color: var(--secundario);
+}
+.boxreseñas label{
+    position: relative;
+    top: -140px;
+    left: 20px;
+    color: black;
+}
+.stars{
+    top: 0px;
+    margin-bottom: 2px;
+}
+
+.starviolet svg{
+    fill: red;
 }
