@@ -27,11 +27,13 @@ document.addEventListener("click", e => {
     )
     const progressBarItemCount = Math.ceil(itemCount / itemsPerScreen)
   
+  
     if (sliderIndex >= progressBarItemCount) {
       slider.style.setProperty("--slider-index", progressBarItemCount - 1)
       sliderIndex = progressBarItemCount - 1
     }
-  
+    
+
     for (let i = 0; i < progressBarItemCount; i++) {
       const barItem = document.createElement("div")
       barItem.classList.add("progress-item")
@@ -48,20 +50,56 @@ document.addEventListener("click", e => {
     const sliderIndex = parseInt(
       getComputedStyle(slider).getPropertyValue("--slider-index")
     )
+
+
     const progressBarItemCount = progressBar.children.length
     if (handle.classList.contains("left-handle")) {
       if (sliderIndex - 1 < 0) {
         slider.style.setProperty("--slider-index", progressBarItemCount - 1)
         progressBar.children[sliderIndex].classList.remove("active")
-        progressBar.children[progressBarItemCount - 1].classList.add("active")
+        progressBar.children[sliderIndex].classList.add("active")
+        let hijos = slider.children;
+     Array.from(hijos).forEach(function (div) {
+        div.classList.add("animacion-izquierda");
+    }); 
+      setInterval(function(){
+        Array.from(hijos).forEach(function (div) {
+          div.classList.remove("animacion-izquierda");
+      });
+     }, 1005);
+    
+        
       } else {
         slider.style.setProperty("--slider-index", sliderIndex - 1)
         progressBar.children[sliderIndex].classList.remove("active")
         progressBar.children[sliderIndex - 1].classList.add("active")
+        let hijos = slider.children;
+     Array.from(hijos).forEach(function (div) {
+        div.classList.add("animacion-izquierda");
+    }); 
+      setInterval(function(){
+        Array.from(hijos).forEach(function (div) {
+          div.classList.remove("animacion-izquierda");
+      });
+     }, 1005);
       }
     }
   
     if (handle.classList.contains("right-handle")) {
+      
+      let hijos = slider.children;
+  
+
+      Array.from(hijos).forEach(function (div) {
+        div.classList.add("animacion-derecha");
+    });
+      setInterval(function(){
+        Array.from(hijos).forEach(function (div) {
+          div.classList.remove("animacion-derecha");
+      });
+     }, 1005);
+
+
       if (sliderIndex + 1 >= progressBarItemCount) {
         slider.style.setProperty("--slider-index", 0)
         progressBar.children[sliderIndex].classList.remove("active")
@@ -72,6 +110,7 @@ document.addEventListener("click", e => {
         progressBar.children[sliderIndex + 1].classList.add("active")
       }
     }
+
   }
   
   function throttle(cb, delay = 1000) {
