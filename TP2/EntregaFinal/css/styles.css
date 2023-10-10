@@ -187,16 +187,6 @@ body{
 }
 /*------------------- PAGINA INCIO ---------------------*/
 
-#iniciarSesionCaja{
-    margin: auto;
-    margin-top: 40px;
-    display: flex;
-    width: 523px;
-    flex-direction: column;
-    align-items: flex-start;
-    border-radius: 10px;
-    background: var(--primario-luz1);
-}
 
 .seleccion{
     display: flex;
@@ -229,6 +219,17 @@ body{
 .botonActivo{
     border-bottom: 1px solid var(--secundario);
     background: var(--acento-luz4);
+}
+
+#iniciarSesionCaja{
+    margin: auto;
+    margin-top: 10rem;
+    display: flex;
+    width: 523px;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 10px;
+    background: var(--primario-luz1);
 }
 
 #iniciarSesionCaja > section{
@@ -572,7 +573,7 @@ body{
     width: 0%;
     height: 100%;
     border-radius: 30px;
-    animation: moving 5001ms ease-in ;
+    animation: moving 5001ms ease-in forwards;
   }
   
   
@@ -630,11 +631,6 @@ header{
     position: relative;
 }
 
-
-/*header button{
-    background-color: var(--acento);
-    size: 0.5rem;
-}*/
   
 header input{
     background-color: var(--secundario-luz1);
@@ -702,7 +698,8 @@ header input{
 
 .contenido{
     width: auto;
-    height: auto;   
+    height: auto;
+    background-color: var(--acento-sombra1);  
 
 }
 
@@ -1502,7 +1499,6 @@ width: 50px;
     justify-content: center;
     overflow: hidden;
     margin-top: 20px;
-    background-color: var(--acento-luz3);
     border-radius: 20px;
   }
   
@@ -1524,7 +1520,6 @@ width: 50px;
   @keyframes animderecha {
 	0% {
 		animation-timing-function: ease-in;
-		opacity: 0;
 		transform: translateX(-250px);
 	}
 
@@ -1572,7 +1567,6 @@ width: 50px;
   @keyframes animizquierda {
 	0% {
 		animation-timing-function: ease-in;
-		opacity: 0;
 		transform: translateX(250px);
 	}
 
@@ -1719,11 +1713,6 @@ width: 50px;
     }
   }
   
-  body {
-    background-color: #333;
-    color: white;
-  }
-
 .grande {
     flex: 0 0 calc(100% / var(--items-per-screen));
     max-width: calc(100% / var(--items-per-screen));
@@ -2285,18 +2274,19 @@ width: 50px;
             }
     } */
     /*----------------------- CARRUSEL GRANDE --------------*/
+
+
     .container {
         display: flex;
         justify-content: center;
         overflow: hidden;
         margin-top: 20px;
-        background-color: var(--acento-luz3);
         border-radius: 20px;
       }
       
       .slider {
         --items-per-screen: 2;
-        --slider-index: 3;
+        --slider-index: 0;
         display: flex;
         flex-grow: 1;
         margin: 0 var(--img-gap);
@@ -2397,11 +2387,7 @@ width: 50px;
           --items-per-screen: 2;
         }
       }
-      
-      body {
-        background-color: #333;
-        color: white;
-      }
+    
     
     .grande {
         flex: 0 0 calc(100% / var(--items-per-screen));
@@ -2744,4 +2730,12 @@ background: var(--Secundario-1, rgba(255, 255, 255, 0.90));
 
 #comprar{
     align-self: center;
+}
+
+.centrado{
+    align-self:center ;
+}
+
+.destacados-wrapper{
+    background-color: var(--acento);
 }

@@ -4,7 +4,7 @@
  let compras = document.querySelector("#compras");
 
 boton.addEventListener('click', ()=>{
-    menudesplegable.classList.remove("ocultarSection");
+    menudesplegable.classList.toggle("ocultarSection");
 });
 
 carrito.addEventListener('click', function(){

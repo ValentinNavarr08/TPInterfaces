@@ -2,5 +2,5 @@ const loader = document.querySelector(".paginaInicial");
   
 setInterval(function(){
     loader.classList.add("cargada");
-    document.body.removeChild(loader);
+    window.location.replace("index.html");
   }, 5000);
