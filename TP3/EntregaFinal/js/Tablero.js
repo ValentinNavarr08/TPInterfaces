@@ -10,7 +10,6 @@ class Tablero{
     }
 
     imprimir() {
-        console.log(this.matriz.length);
         console.log(this.matriz);
     }
 
@@ -58,7 +57,7 @@ class Tablero{
                     posYFicha >= casillero.getPosY() - range &&
                     posYFicha <= casillero.getPosY() + casillero.getRadius() * 2 + range
                 ){
-                    console.log(ficha);
+
                     return true;
                 }
 
@@ -68,11 +67,76 @@ class Tablero{
             }
             return false;
         }
-    
 
-    colocarFicha(ficha){
-        let posXFicha = ficha.getPosX();
-        let posYFicha = ficha.getPosY();
+    verificarVictoria(ficha) {
+        const matriz = this.matriz;
+        let jugador = ficha.getJugador();
+        console.log("pasa jugador" + jugador);
+            // Verificar victoria en horizontal
+            for (let fila = 0; fila < this.cantfilas; fila++) {
+                for (let columna = 0; columna <= this.cantcolumnas - 4; columna++) {
+                    if (
+                        !matriz[fila][columna].esCasillero && matriz[fila][columna].getJugador() === jugador &&
+                        !matriz[fila][columna + 1].esCasillero && matriz[fila][columna + 1].getJugador() === jugador &&
+                        !matriz[fila][columna + 2].esCasillero && matriz[fila][columna + 2].getJugador() === jugador &&
+                        !matriz[fila][columna + 3].esCasillero && matriz[fila][columna + 3].getJugador() === jugador
+                    ){
+                            return jugador;
+                        }
+                }
+            }
+                // Verificar victoria en vertical
+        for (let fila = 0; fila <= this.cantfilas - 4; fila++) {
+            for (let columna = 0; columna < this.cantcolumnas; columna++) {
+                if (
+                    !matriz[fila][columna].esCasillero && matriz[fila][columna].getJugador() === jugador &&
+                    !matriz[fila + 1][columna].esCasillero && matriz[fila + 1][columna].getJugador() === jugador &&
+                    !matriz[fila + 2][columna].esCasillero && matriz[fila + 2][columna].getJugador() === jugador &&
+                    !matriz[fila + 3][columna].esCasillero && matriz[fila + 3][columna].getJugador() === jugador
+                ) {
+                    return jugador;
+                }
+            }
+        }
+
+        // Verificar victoria en diagonal ascendente
+        for (let fila = 3; fila < this.cantfilas; fila++) {
+            for (let columna = 0; columna <= this.cantcolumnas - 4; columna++) {
+                if (
+                    !matriz[fila][columna].esCasillero && matriz[fila][columna].getJugador() === jugador &&
+                    !matriz[fila - 1][columna + 1].esCasillero && matriz[fila - 1][columna + 1].getJugador() === jugador &&
+                    !matriz[fila - 2][columna + 2].esCasillero && matriz[fila - 2][columna + 2].getJugador() === jugador &&
+                    !matriz[fila - 3][columna + 3].esCasillero && matriz[fila - 3][columna + 3].getJugador() === jugador
+                ) {
+                    return jugador;
+                }
+            }
+        }
+
+        // Verificar victoria en diagonal descendente
+        for (let fila = 0; fila <= this.cantfilas - 4; fila++) {
+            for (let columna = 0; columna <= this.cantcolumnas - 4; columna++) {
+                if (
+                    !matriz[fila][columna].esCasillero && matriz[fila][columna].getJugador() === jugador &&
+                    !matriz[fila + 1][columna + 1].esCasillero && matriz[fila + 1][columna + 1].getJugador() === jugador &&
+                    !matriz[fila + 2][columna + 2].esCasillero && matriz[fila + 2][columna + 2].getJugador() === jugador &&
+                    !matriz[fila + 3][columna + 3].esCasillero && matriz[fila + 3][columna + 3].getJugador() === jugador
+                ) {
+                    return jugador;
+                }
+            }
+        }
+    
+    
+            // (Verificaciones en vertical y diagonales como se mostró en la respuesta anterior)
+    
+            return null; 
+        }
+    
+        colocarFicha(ficha) {
+            // (coloca la ficha en la posición correspondiente en la matriz)
+            let posXFicha = ficha.getPosX();
+            let posYFicha = ficha.getPosY();
 
         for(var j=0; j<this.cantfilas; j++) {
             for(var i=0; i<this.cantcolumnas; i++){
@@ -91,7 +155,10 @@ class Tablero{
             }
                 }
             }
-            console.log(this.matriz);
-         }
     
-}
+            // Verificar la victoria después de colocar una ficha
+            const ganador = this.verificarVictoria(ficha);
+            return ganador; // Devuelve el ganador si lo hay, de lo contrario, null
+        }
+    }
+

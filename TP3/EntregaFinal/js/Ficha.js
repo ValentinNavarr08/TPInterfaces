@@ -1,5 +1,5 @@
 class Ficha{
-    constructor(posX, posY, radius, imagen, context){
+    constructor(posX, posY, radius, imagen, context, jugador){
         this.posX = posX;
         this.posY = posY;
         this.radius = radius;
@@ -8,6 +8,7 @@ class Ficha{
         this.desfasajeX = -30.5;
         this.desfasajeY = -15;
         this.clickeable = true;
+        this.jugador = jugador;
     }
 
 esCasillaro(){
@@ -81,5 +82,9 @@ isPointInside(x,y){
     let _y = this.posY -y;
     
     return Math.sqrt(_x * _x + _y * _y) < this.radius;
+}
+
+getJugador(){
+    return this.jugador;
 }
 }

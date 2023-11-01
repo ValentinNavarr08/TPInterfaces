@@ -1,3 +1,14 @@
+/* TODO: 
+hacer que la ficha se devualva
+hacer los menus iniciales
+setear la imagen del fondo
+
+
+*/
+
+
+
+
 let canvas = document.querySelector('#canvas');
 let ctx = canvas.getContext('2d');
 let canvasWidth = canvas.width;
@@ -9,7 +20,7 @@ let desfasajeX = -30.5;
 let desfasajeY = -15 ;
 const img = document.querySelector('#tablero');
 const pat = ctx.createPattern(img, "no-repeat");
-
+const timerElement = document.getElementById("timer");
 
 const fichablue = document.querySelector('#fichablue');
 const fichared = document.querySelector('#fichared');
@@ -18,16 +29,11 @@ const fichared = document.querySelector('#fichared');
 let fichasblue = crearfichas(fichablue);
 let fichasred = crearfichas(fichared);
 
-console.log(fichasred);
+
 drawfichas(fichasblue);
 drawfichas(fichasred);
 
 var jugadoractivo = "jugador1";
-
-
-
-
-
 
 var tablero = new Tablero(5,8,ctx);
 tablero.imprimir();
@@ -44,16 +50,22 @@ function crearfichas(estilo) {
     if(estilo == fichared) {
         var posinicialx = 60;
         var posinicialy = 60;
-    } else {
-        var posinicialx = 1000;
-        var posinicialy = 60;
-    }
-    let fichas = [];
+        let fichas = [];
     for(let i = 0;i < 18;i++){
-        let ficha = new Ficha(posinicialx, posinicialy, 40, estilo, ctx);
+        let ficha = new Ficha(posinicialx, posinicialy, 40, estilo, ctx, "jugador1");
         fichas.push(ficha);
     }
     return fichas;
+    } else {
+        var posinicialx = 1000;
+        var posinicialy = 60;
+        let fichas = [];
+        for(let i = 0;i < 18;i++){
+        let ficha = new Ficha(posinicialx, posinicialy, 40, estilo, ctx, "jugador2");
+        fichas.push(ficha);
+    }
+    return fichas;
+    }
 }
 
 
@@ -85,19 +97,18 @@ if(clickFig != null) {
 function onmouseup(e){
     isMouseDown = false;
     if(lastClickedFigure != null && lastClickedFigure.isClickeable() && tablero.estaencimacasillero(lastClickedFigure)){
-        tablero.colocarFicha(lastClickedFigure);
+        let ganador = tablero.colocarFicha(lastClickedFigure);
         sacarFicha();
         lastClickedFigure.setClickeable(false);
         tablero.dibujar();
-        drawFigure();
+        drawFigure();  
+        console.log(ganador);
+        if(ganador != null){
+            alert(ganador);
+        }
 
         // logica para cambiar turnos
-        if (jugadoractivo == "jugador1"){
-            jugadoractivo = "jugador2";
-        }
-        else{
-            jugadoractivo = "jugador1";
-        }
+        cambiarTurno();
         
     }
 
@@ -106,10 +117,6 @@ function onmouseup(e){
 function onmousemove(e){
     if(isMouseDown && lastClickedFigure != null ) {
     lastClickedFigure.setPosition(e.layerX, e.layerY);
-    // if(tablero.estaencima(e.layerX,e.layerY)){
-    //     console.log(tablero.estaencima(e.layerX,e.layerY));
-    //     var casillero = tablero.encontrarcasillero(e.layerX,e.layerY) 
-    // }
     drawFigure();
 }
 }
@@ -163,12 +170,58 @@ function findClickedFigure(x,y){
 function sacarFicha() {
     if (jugadoractivo == "jugador1"){
         fichasred.splice(0,1);
-        console.log(fichasred);
     }
     else{
         fichasblue.pop(0);
     } 
 }
+
+function actualizarTemporizador(tiempoRestanteEnMilisegundos) {
+    const segundos = Math.floor(tiempoRestanteEnMilisegundos / 1000);
+    const milisegundos = Math.floor((tiempoRestanteEnMilisegundos % 1000) / 100);
+
+    timerElement.textContent = `Tiempo restante: ${segundos}.${milisegundos} segundos`;
+
+    if (tiempoRestanteEnMilisegundos === 0) {
+        // Cambia el turno automáticamente
+        cambiarTurno();
+    }
+}
+
+const timer = new Timer(actualizarTemporizador, 30); // 30 segundos
+timer.start();
+
+function cambiarTurno(){
+    // Detener el temporizador actual si está en funcionamiento
+    if (timer) {
+        timer.stop();
+        if (jugadoractivo == "jugador1"){
+            jugadoractivo = "jugador2";
+            for(let i=0; i < fichasblue.length; i++){
+            fichasblue[i].setClickeable(true);
+            }
+            for(let i=0; i < fichasred.length; i++){
+                fichasred[i].setClickeable(false);
+            }
+        }
+        else{
+            jugadoractivo = "jugador1";
+            for(let i=0; i < fichasblue.length; i++){
+                fichasblue[i].setClickeable(false);
+                }
+                for(let i=0; i < fichasred.length; i++){
+                    fichasred[i].setClickeable(true);
+                }
+
+        }
+        
+    }
+    
+
+    // Iniciar un nuevo temporizador para el nuevo turno
+    timer.start();
+}
+
 canvas.addEventListener('mousedown', onmousedown,false);
 canvas.addEventListener('mousemove', onmousemove,false);
 canvas.addEventListener('mouseup', onmouseup,false);
