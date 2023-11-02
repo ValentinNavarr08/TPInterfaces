@@ -4,20 +4,24 @@ class Tablero{
         this.cantfilas = cantfilas;
         this.ctx = ctx;
         this.matriz = [];
-        this.crear();
         this.desfasajeX = -30.5;
         this.desfasajeY = -15;
+        this.Xinicial = 130;
+        this.Yinicial = 130;
+        this.Xfinal = 930;
+        this.Yfinal = 600;
+        this.crear();
     }
 
     imprimir() {
         console.log(this.matriz);
     }
 
-    crear(){
-        let posYdefault = 130;
+/*     crear(){
+        let posYdefault = this.Yinicial;
         for(var j=0; j<this.cantfilas; j++) {
             var arr = new Array;
-            let posXdefault = 200;
+            let posXdefault = this.Xincicial;
             for(var i=0; i<this.cantcolumnas; i++){
                 if (i==0){
                     let circulo = new Casillero(posXdefault, posYdefault ,40 , 'grey', ctx);
@@ -31,14 +35,41 @@ class Tablero{
             this.matriz.push(arr);
             posYdefault += 100;
         }
+    } */
+     crear() {
+        let anchoTablero = this.Xfinal - this.Xinicial;
+        let altoTablero = this.Yfinal - this.Yinicial;
+
+    
+        let tamanoCasillero = Math.min(anchoTablero / this.cantcolumnas, altoTablero / this.cantfilas);
+        let espaciado = tamanoCasillero;
+        let  espacidonuevoX = tamanoCasillero + (anchoTablero - tamanoCasillero * this.cantcolumnas) % this.cantcolumnas;
+        let espaciadoY
+       
+
+    
+        for (let j = 0; j < this.cantfilas; j++) {
+            let arr = new Array;
+            for (let i = 0; i < this.cantcolumnas; i++) {
+                let posX = this.Xinicial + i * espacidonuevoX;
+                let posY = this.Yinicial + j * espaciado;
+                let casillero = new Casillero(posX, posY, tamanoCasillero / 2, 'grey', this.ctx);
+                arr.push(casillero);
+            }
+            this.matriz.push(arr);
+        }
     }
 
     dibujar(){
-        for(var j=0; j<this.cantfilas; j++) {
+        
+        let casfin = new Casillero(this.Xfinal, this.Yfinal, 5, "red", this.ctx);
+        casfin.draw();
+
+         for(var j=0; j<this.cantfilas; j++) {
             for(var i=0; i<this.cantcolumnas; i++){
                 this.matriz[j][i].draw();
             }
-        }
+        } 
     }
 
 
@@ -71,7 +102,6 @@ class Tablero{
     verificarVictoria(ficha) {
         const matriz = this.matriz;
         let jugador = ficha.getJugador();
-        console.log("pasa jugador" + jugador);
             // Verificar victoria en horizontal
             for (let fila = 0; fila < this.cantfilas; fila++) {
                 for (let columna = 0; columna <= this.cantcolumnas - 4; columna++) {
