@@ -2739,3 +2739,175 @@ background: var(--Secundario-1, rgba(255, 255, 255, 0.90));
 .destacados-wrapper{
     background-color: var(--acento);
 }
+
+form {
+    display: block;
+    max-width: 600px;
+    margin: 100px auto;
+  }
+  form label.radio-control1 {
+    display: inline-block;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    cursor: pointer;
+  }
+  form label.radio-control1 img {
+    display: block;
+    pointer-events: none;
+    width: 100px;
+    height: 100px;
+    opacity: 0.8;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    transition: opacity 500ms ease-out, border 500ms ease-out;
+  }
+  form label.radio-control1 img:hover {
+    opacity: 1;
+  }
+  form label.radio-control1 input[type=radio] {
+    display: inline-block;
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    left: -1000px;
+    top: -1000px;
+  }
+  form label.radio-control1 input[type=radio]:checked ~ img {
+    opacity: 1;
+    border-color: var(--acento);
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.4);
+  }
+
+
+  -------------------
+  .radio-form {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    transform: translate(-50%, -50%);
+  }
+  @media screen and (max-width: 768px) {
+    .radio-form {
+      width: 100%;
+      transform: none;
+      position: relative;
+      left: 0;
+      top: 0;
+    }
+  }
+  .radio-form h1 {
+    width: 100%;
+    text-align: center;
+    font-weight: 100;
+    font-style: italic;
+    font-size: 35px;
+  }
+  .radio-form .radio-control {
+    width: 33%;
+    transition: all ease 250ms;
+  }
+  .radio-form .radio-control:hover {
+    transform: scale(1.1);
+  }
+  .radio-form .radio-control:hover .radio-input {
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+  }
+  @media screen and (max-width: 768px) {
+    .radio-form .radio-control {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+  .radio-form .radio-control .radio-input {
+    background: #ffffff;
+    text-align: center;
+    padding: 17px;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    transition: all ease 250ms;
+    background-clip: padding-box;
+    border: solid 2px transparent;
+    border-radius: 10px;
+    width: 373px;
+  }
+  .radio-form .radio-control .radio-input:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    margin: -2px;
+    border-radius: inherit;
+    background: #d9d9d9;
+  }
+  
+  .radio-form .radio-control .radio-input span {
+    letter-spacing: 2px;
+    font-size: 18px;
+    font-weight: 200;
+    text-transform: uppercase;
+    display: block;
+    margin-top: 10px;
+    color: var(--secundario-sombra3);
+    opacity: 1;
+  }
+  .radio-form .radio-control input {
+    display: none;
+  }
+  .radio-form .radio-control input:checked + .radio-input span {
+    color: #444444;
+    opacity: 1;
+    transition: opacity ease 250ms;
+  }
+  .radio-form .radio-control input:checked + .radio-input:after {
+    top: 0;
+    right: 20px;
+    transform: translateY(-50%);
+    animation-name: bounceIn;
+    animation-duration: 250ms;
+    background-color: var(--secundario-luz1);
+    font-size: 25px;
+    display: block;
+    position: absolute;
+    padding-left: 2px;
+    content: "▼";
+    font-family: "Font Awesome 5 Free";
+    font-weight: bold;
+  }
+  .radio-form .radio-control input[type=radio]:checked + .radio-input:before {
+    background: linear-gradient(217deg, var(--acento), rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, var(--acento-luz3), rgba(0, 255, 0, 0) 70.71%), linear-gradient(336deg, var(--acento), rgba(0, 0, 255, 0) 70.71%);
+  }
+  .radio-form .radio-control input[type=radio]:checked + .radio-input:after {
+    color:var(--acento)
+  }
+  .radio-form .radio-control input[type=radio]:checked + .radio-input i {
+    background: linear-gradient(217deg, var(--acento), rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, var(--acento-luz3), rgba(0, 255, 0, 0) 70.71%), linear-gradient(336deg, var(--acento), rgba(0, 0, 255, 0) 70.71%);
+    background-size: 150%;
+    opacity: 1;
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+  }
+
+  
+  @keyframes bounceIn {
+    0% {
+      transform: translateY(-50%) scale(0);
+    }
+    75% {
+      transform: translateY(-50%) scale(1.1);
+    }
+    100% {
+      transform: translateY(-50%) scale(1);
+    }
+  }

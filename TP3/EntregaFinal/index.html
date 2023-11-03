@@ -115,16 +115,113 @@
       border-top-right-radius: 10px;
       " id="reset"><svg style="
           height: 20px;
-          eight: 25px;
           left: -3px;
           position: relative;
           top: 3px;
           " fill="#000000" width="64px" height="64px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M960 0v112.941c467.125 0 847.059 379.934 847.059 847.059 0 467.125-379.934 847.059-847.059 847.059-467.125 0-847.059-379.934-847.059-847.059 0-267.106 126.607-515.915 338.824-675.727v393.374h112.94V112.941H0v112.941h342.89C127.058 407.38 0 674.711 0 960c0 529.355 430.645 960 960 960s960-430.645 960-960S1489.355 0 960 0" fill-rule="evenodd"></path> </g></svg></button>
-            <canvas id="canvas" height="650" width="1080" style="
-            position: relative;
-            left: 32px;
-            border-radius: 10px;
-            "></canvas>
+    <div id="menu" style="
+          height: 650px;
+          width: 1080px;
+          position: absolute;
+          left: 32px;
+          border-radius: 10px;
+          background: var(--primario-luz1);
+          z-index: 100;
+      ">
+            <form action="">
+                <div style="
+                position: absolute;
+                top: 10px;
+                left: 162px;
+                /* height: 150px; */
+                ">
+                    <h3>Ficha Azul</h3>
+                    
+                    <label class="radio-control1">
+                        <input type="radio" name="imgAzul" value="images/azul1.png">
+                        <img src="images/azul1.png" alt="option">
+                    </label>
+                    
+                    <label class="radio-control1">
+                        <input type="radio" name="imgAzul" value="images/azul2.png">
+                        <img src="images/azul2.png" alt="option">
+                    </label>
+                    
+                    <label class="radio-control1">
+                        <input type="radio" name="imgAzul" value="images/azul3.png">
+                        <img src="images/azul3.png" alt="option">
+                    </label>
+                </div>
+                <div style="
+                position: absolute;
+                top: 10px;
+                left: 633px;
+                ">
+                    <h3>Ficha Rojo</h3>
+                    
+                    <label class="radio-control1">
+                        <input type="radio" name="imgRojo" value="images/rojo1.png">
+                        <img src="images/rojo1.png" alt="option">
+                    </label>
+                    
+                    <label class="radio-control1">
+                        <input type="radio" name="imgRojo" value="images/rojo2.png">
+                        <img src="images/rojo2.png" alt="option">
+                    </label>
+    
+                    <label class="radio-control1">
+                        <input type="radio" name="imgRojo" value="images/rojo3.png">
+                        <img src="images/rojo3.png" alt="option">
+                    </label>
+                </div>
+                <div style="
+                position: absolute;
+                top: 177px;
+                left: 409px;
+            ">
+ 
+                <div class="radio-form">
+                    <h1>Elegi el modo!</h1>
+                
+                <label class="radio-control">
+                    <input type="radio" name="modo" value="4">
+                    <div class="radio-input">
+                        <span>4 en linea</span>
+                    </div>
+                </label>
+                
+                <label class="radio-control">
+                    <input type="radio" name="modo" value="5" checked="">
+                    <div class="radio-input">
+                        <span>5 en linea</span>
+                    
+                    </div>
+                </label>
+                <label class="radio-control">
+                    <input type="radio" name="modo" value="6">
+                    <div class="radio-input">
+                        <span>6 en linea</span>
+                    </div>
+                </label>
+                <label class="radio-control">
+                    <input type="radio" name="modo" value="7">
+                    <div class="radio-input">
+                    <span> 7 en linea</span>
+                    </div>
+                </label>
+                    <button style=" left: 0px;
+                    top: 10px;
+                    width: 370px;
+                    height: 57px;" type="button" id="Enviar" >JUGAR</button>
+                </div>
+            </div>
+            </form>
+    </div>
+        <canvas id="canvas" height="650" width="1080" style="
+         position: relative;
+        left: 32px;
+        border-radius: 10px;
+         "></canvas>
         
     
         <section class="descripcion">

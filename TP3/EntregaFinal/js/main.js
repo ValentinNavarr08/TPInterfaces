@@ -1,6 +1,9 @@
 /* TODO: 
 hacer que la ficha se devuelva
 hacer los menus iniciales
+escuchar el boton 
+agarrar todo lo que viene enlinea 
+hacer el tablero
 */
 
 
@@ -95,16 +98,6 @@ if(lastClickedFigure != null) {
     lastClickedFigure.setResaltado(false);
     lastClickedFigure = null;
 }
-
-/* console.log(e);
-let casillero1= new Casillero(e.layerX, e.layerY,5,"green", ctx);
-let casillero2= new Casillero(e.clientX -30.5 *2 , e.clientY -15,5,"red", ctx);
-let casillero3= new Casillero(e.clientX, e.clientY ,5,"blue", ctx);
-drawFigure();
-casillero1.draw();
-casillero2.draw();
-casillero3.draw(); */
-// TODO : preguntar sobre el offset
 
 
 let clickFig = findClickedFigure(e.layerX, e.layerY);//coordenadas de x e y dentro del canvas
