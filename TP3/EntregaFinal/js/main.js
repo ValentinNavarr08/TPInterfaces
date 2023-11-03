@@ -1,8 +1,6 @@
 /* TODO: 
-hacer que la ficha se devualva
+hacer que la ficha se devuelva
 hacer los menus iniciales
-setear la imagen del fondo
-logica del tablero dinamico
 */
 
 
@@ -21,8 +19,28 @@ const reiniciar = document.getElementById('reset');
 const fichablue = document.querySelector('#fichablue');
 const fichared = document.querySelector('#fichared');
 
-
+const CantF = 5;
+const CantC = 8;
+const cantGan = 6;
 const img = new Image();
+
+var tablero = new Tablero(CantF,CantC,cantGan,ctx);
+tablero.imprimir();
+tablero.dibujar();
+const Tficha = tablero.getTamanoCasilleros(); 
+console.log(Tficha);
+
+
+var fichasblue = crearfichas(fichablue, Tficha);
+drawfichas(fichasblue);
+var fichasred = crearfichas(fichared, Tficha);
+drawfichas(fichasred);
+
+console.log(fichasblue);
+console.log(fichasred);
+
+var jugadoractivo = "jugador1";
+
 img.src = "images/fondo.png";
 img.height = canvasHeight;
 img.width = canvasWidth;
@@ -33,48 +51,37 @@ img.onload = () => {
     const pattern = ctx.createPattern(img, "no-repeat");
     ctx.fillStyle = pattern;
     ctx.fillRect(0, 0, canvas.width, canvas.height); // Usar canvas.width y canvas.height
+    tablero.dibujar();
     drawfichas(fichasblue);
     drawfichas(fichasred);
-    tablero.dibujar();
-};
+}
 
-var fichasblue = crearfichas(fichablue);
-
-
-var fichasred = crearfichas(fichared);
-
-
-var jugadoractivo = "jugador1";
-
-var tablero = new Tablero(10,10,ctx);
-tablero.imprimir();
-tablero.dibujar();
 
 function drawfichas(arreglo){
     let max= arreglo.length;
-    for(let i=0; i < max; i++){
+    for(let i=0; i <max; i++){
         arreglo[i].draw();
     } 
 }
 
 
-function crearfichas(estilo) {
+function crearfichas(estilo, Tam) {
     if(estilo == fichared) {
         var posinicialx = 60;
         var posinicialy = 60;
         let fichas = [];
     for(let i = 0;i < 18;i++){
-        let ficha = new Ficha(posinicialx, posinicialy, 40, estilo, ctx, "jugador1");
+        let ficha = new Ficha(posinicialx, posinicialy, Tam, estilo, ctx, "jugador1");
         fichas.push(ficha);
     }
     return fichas;
     } 
-    else if (estilo == fichablue){
+    else{
         var posinicialx = 1000;
         var posinicialy = 60;
         let fichas = [];
         for(let i = 0;i <18;i++){
-        let ficha = new Ficha(posinicialx, posinicialy, 40, estilo, ctx, "jugador2");
+        let ficha = new Ficha(posinicialx, posinicialy, Tam, estilo, ctx, "jugador2");
         fichas.push(ficha);
     }
     return fichas;
@@ -111,8 +118,8 @@ function onmouseup(e){
     isMouseDown = false;
     if(lastClickedFigure != null && lastClickedFigure.isClickeable() && tablero.estaencimacasillero(lastClickedFigure)){
         let ganador = tablero.colocarFicha(lastClickedFigure);
-        sacarFicha();
         lastClickedFigure.setClickeable(false);
+        sacarFicha();
         tablero.dibujar();
         drawFigure();
         
@@ -176,15 +183,16 @@ function sacarFicha() {
         fichasred.splice(0,1);
     }
     else{
-        fichasblue.pop(0);
+        fichasblue.splice(0,1);
     } 
 }
+
 
 function actualizarTemporizador(tiempoRestanteEnMilisegundos) {
     const segundos = Math.floor(tiempoRestanteEnMilisegundos / 1000);
     const milisegundos = Math.floor((tiempoRestanteEnMilisegundos % 1000) / 100);
 
-    timerElement.textContent = `Tiempo restante: ${segundos}.${milisegundos} segundos`;
+    timerElement.textContent = `${segundos}.${milisegundos}`;
 
     if (tiempoRestanteEnMilisegundos === 0) {
         // Cambia el turno automáticamente
@@ -219,18 +227,16 @@ function resetearJuego(){
         lastClickedFigure.setResaltado(false);
     }
     fichasblue = [];
-    fichasblue = crearfichas(fichablue);
-    fichasred = [];
-    fichasred = crearfichas(fichared);
-
-    
+    fichasblue = crearfichas(fichablue, Tficha);
     drawfichas(fichasblue);
+    fichasred = [];
+    fichasred = crearfichas(fichared, Tficha);
     drawfichas(fichasred);
     
     jugadoractivo = "jugador2";
     cambiarTurno();
 
-    tablero = new Tablero(5,8,ctx);
+    tablero = new Tablero(CantF,CantC,cantGan, ctx);
     tablero.imprimir();
     tablero.dibujar();
 
