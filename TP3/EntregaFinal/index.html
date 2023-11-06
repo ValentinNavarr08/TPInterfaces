@@ -89,6 +89,19 @@
         left: 568px;
         /* color: black; */
         ">Tiempo restante</p>
+        <div class="IUjugador" style="
+        color: darkred;
+        position: absolute;
+       left: 32px;
+       border-radius: 10px;
+        "></div>
+        <div class="IUjugador" 
+        style="
+        color: blue;
+         position: absolute;
+        left: 32px;
+        border-radius: 10px;
+         "></div>
         <div id="timer" style="
         width: 261px;
         font-weight: bold;
@@ -128,7 +141,7 @@
           background: var(--primario-luz1);
           z-index: 100;
       ">
-            <form action="">
+            <form  id="form">
                 <div style="
                 position: absolute;
                 top: 10px;
@@ -138,7 +151,7 @@
                     <h3>Ficha Azul</h3>
                     
                     <label class="radio-control1">
-                        <input type="radio" name="imgAzul" value="images/azul1.png">
+                        <input  type="radio" name="imgAzul" value="images/azul1.png">
                         <img src="images/azul1.png" alt="option">
                     </label>
                     
@@ -158,8 +171,8 @@
                 left: 633px;
                 ">
                     <h3>Ficha Rojo</h3>
-                    
-                    <label class="radio-control1">
+            
+                     <label class="radio-control1">
                         <input type="radio" name="imgRojo" value="images/rojo1.png">
                         <img src="images/rojo1.png" alt="option">
                     </label>
@@ -212,7 +225,7 @@
                     <button style=" left: 0px;
                     top: 10px;
                     width: 370px;
-                    height: 57px;" type="button" id="Enviar" >JUGAR</button>
+                    height: 57px;" type="submit"  id ="jugar" class="Enviar" >JUGAR</button>
                 </div>
             </div>
             </form>
@@ -401,7 +414,7 @@
                     <path d="M2.87001 34.1874C5.88169 35.1397 10.7359 35.0526 13.7115 33.9929L50.9532 20.7177C56.8998 18.5979 56.8389 15.3371 50.8172 13.4331L13.101 1.50784C10.0893 0.555541 5.23505 0.642648 2.25947 1.70239C-0.716878 2.76217 -0.687609 4.39325 2.32485 5.34557L34.6058 15.5523C37.6175 16.5049 37.6468 18.1358 34.6712 19.1955L2.80463 30.5443C-0.170951 31.604 -0.14168 33.2352 2.87001 34.1874Z" fill="#B3B3B4"/>
                 </svg>
                 <img src="images/avatar.png" alt="">
-                 <button type="submit" id ="Enviar">Enviar</button>
+                 <button type="submit" class="Enviar">Enviar</button>
             </div>
             <div class="boxreseñas">
                 <div class="stars">

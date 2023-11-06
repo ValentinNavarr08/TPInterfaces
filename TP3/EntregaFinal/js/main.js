@@ -1,40 +1,63 @@
-/* TODO: 
-hacer que la ficha se devuelva
-hacer los menus iniciales
-escuchar el boton 
-agarrar todo lo que viene enlinea 
-hacer el tablero
-*/
 
-
+// Logica general
+form.addEventListener("submit", function(event){
+event.preventDefault();
 let canvas = document.querySelector('#canvas');
 let ctx = canvas.getContext('2d');
 let canvasWidth = 1080;
 let canvasHeight = 650;
-let figures = [];
 let lastClickedFigure = null;
 let isMouseDown = false;
-let desfasajeX = -30.5;
-let desfasajeY = -15 ;
 const timerElement = document.getElementById('timer');
 const reiniciar = document.getElementById('reset');
+const boton = document.getElementById('jugar');
+const form = document.getElementById('form');
+const menu = document.getElementById("menu");
 
-const fichablue = document.querySelector('#fichablue');
-const fichared = document.querySelector('#fichared');
+var imgAzul = new Image()
+imgAzul.src = document.querySelector('input[name="imgAzul"]:checked').value;
+const fichablue = imgAzul;
 
-const CantF = 5;
-const CantC = 8;
-const cantGan = 6;
+var imgRojo = new Image()
+imgRojo.src = document.querySelector('input[name="imgRojo"]:checked').value;
+const fichared = imgRojo;
+
+var CantF = 5;
+var CantC = 8;
+const cantGan = parseInt(document.querySelector('input[name="modo"]:checked').value);
 const img = new Image();
 
+// Dependiendo de que modo se elige se cambian las dimensiones
+switch(cantGan){
+    case 5:
+        CantF = 7;
+        CantC = 8;
+        break;
+    case 6:
+        CantF = 8;
+        CantC = 9;
+        break;
+    case 7:
+        CantF = 10;
+        CantC = 11;
+        break;
+}
+console.log(CantF);
+console.log(CantC);
+
+
+
+console.log(cantGan);
+menu.classList.add("ocultarSection");
+
+// creamos tablero
 var tablero = new Tablero(CantF,CantC,cantGan,ctx);
 tablero.imprimir();
 tablero.dibujar();
-const Tficha = tablero.getTamanoCasilleros(); 
-console.log(Tficha);
-
+const Tficha = tablero.getTamanoCasilleros();
 
 var fichasblue = crearfichas(fichablue, Tficha);
+console.log(fichasblue);
 drawfichas(fichasblue);
 var fichasred = crearfichas(fichared, Tficha);
 drawfichas(fichasred);
@@ -48,18 +71,19 @@ img.src = "images/fondo.png";
 img.height = canvasHeight;
 img.width = canvasWidth;
 
+// Seteamos la imagen del fondo
 img.onload = () => {
-    canvas.width = img.width;  // Establecer el ancho del canvas al ancho de la imagen
-    canvas.height = img.height; // Establecer el alto del canvas al alto de la imagen
+    canvas.width = img.width;  
+    canvas.height = img.height; 
     const pattern = ctx.createPattern(img, "no-repeat");
     ctx.fillStyle = pattern;
-    ctx.fillRect(0, 0, canvas.width, canvas.height); // Usar canvas.width y canvas.height
+    ctx.fillRect(0, 0, canvas.width, canvas.height); 
     tablero.dibujar();
     drawfichas(fichasblue);
     drawfichas(fichasred);
 }
 
-
+// Dibuja las fichas
 function drawfichas(arreglo){
     let max= arreglo.length;
     for(let i=0; i <max; i++){
@@ -67,7 +91,7 @@ function drawfichas(arreglo){
     } 
 }
 
-
+// Crea las fichas con el estilo y tamaño deseado
 function crearfichas(estilo, Tam) {
     if(estilo == fichared) {
         var posinicialx = 60;
@@ -91,7 +115,7 @@ function crearfichas(estilo, Tam) {
     }
 }
 
-
+// handlers de eventos
 function onmousedown(e){
 isMouseDown = true;
 if(lastClickedFigure != null) {
@@ -106,19 +130,23 @@ if(clickFig != null) {
     lastClickedFigure = clickFig;
 }
 }
-
+// cuando suelta el mouse
 function onmouseup(e){
     isMouseDown = false;
     if(lastClickedFigure != null && lastClickedFigure.isClickeable() && tablero.estaencimacasillero(lastClickedFigure)){
+        // llama a colocar ficha que devuelve si hay un ganador o no
         let ganador = tablero.colocarFicha(lastClickedFigure);
         lastClickedFigure.setClickeable(false);
+        // Sacamos la ficha de la mano del jugador para que no pueda acceder (del array).
         sacarFicha();
-        tablero.dibujar();
+        //se redibuja todo
         drawFigure();
-        
+
         // logica para cambiar turnos
         cambiarTurno();
+        //se pregunta si hay ganador
         if(ganador != null){
+            //logica de ganar
             alert(ganador);
             timer.stop();
         }
@@ -128,20 +156,24 @@ function onmouseup(e){
 }
 
 function onmousemove(e){
+    //mientras se va moviendo 
     if(isMouseDown && lastClickedFigure != null ) {
     lastClickedFigure.setPosition(e.layerX, e.layerY);
+    //se va redibujando
     drawFigure();
 }
 }
 
 
-
+//redibuja todo el canvass 
  function drawFigure(){
     clearCanvas();
+    tablero.dibujar();
     drawfichas(fichasblue);
     drawfichas(fichasred);
 } 
 
+//clarea todo el canvass
 function clearCanvas(){
     const pattern = ctx.createPattern(img, "no-repeat");
     ctx.fillStyle = pattern;
@@ -149,8 +181,9 @@ function clearCanvas(){
     tablero.dibujar();
 }
 
+//trata de encontrar la figura sobre la que se hace click
 function findClickedFigure(x,y){
-    /* ----------- OPTIMIZAR------------*/ 
+    /* ----------- OPTIMIZAR------------*/
 
     if (jugadoractivo == "jugador1"){
         for(let i = 0; i < fichasred.length; i++){
@@ -171,6 +204,7 @@ function findClickedFigure(x,y){
     return null; 
 }
 
+//Una vez la ficha está en el tablero se la saca la ficha de la mano
 function sacarFicha() {
     if (jugadoractivo == "jugador1"){
         fichasred.splice(0,1);
@@ -180,11 +214,12 @@ function sacarFicha() {
     } 
 }
 
-
+//Actualiza el reloj
 function actualizarTemporizador(tiempoRestanteEnMilisegundos) {
     const segundos = Math.floor(tiempoRestanteEnMilisegundos / 1000);
     const milisegundos = Math.floor((tiempoRestanteEnMilisegundos % 1000) / 100);
 
+    //Actualiza el timer en pantalla
     timerElement.textContent = `${segundos}.${milisegundos}`;
 
     if (tiempoRestanteEnMilisegundos === 0) {
@@ -193,14 +228,17 @@ function actualizarTemporizador(tiempoRestanteEnMilisegundos) {
     }
 }
 
-const timer = new Timer(actualizarTemporizador, 30); // 30 segundos
+const timer = new Timer(actualizarTemporizador, 30);
 timer.start();
 
+//Cambia el turno del jugador
 function cambiarTurno(){
     // Detener el temporizador actual si está en funcionamiento
     if (timer) {
         timer.stop();
         drawFigure();
+
+        //Cambia el jugador activo
         if (jugadoractivo == "jugador1"){
             jugadoractivo = "jugador2";
         }
@@ -215,10 +253,12 @@ function cambiarTurno(){
     timer.start();
 }
 
+//Funcion de boton Reinicio
 function resetearJuego(){
     if(lastClickedFigure != null) {
         lastClickedFigure.setResaltado(false);
     }
+    //Se vuelve a crear todo de nuevo
     fichasblue = [];
     fichasblue = crearfichas(fichablue, Tficha);
     drawfichas(fichasblue);
@@ -235,8 +275,10 @@ function resetearJuego(){
 
 }
 
+//Listeners
 reiniciar.addEventListener('click', resetearJuego);
 
 canvas.addEventListener('mousedown', onmousedown,false);
 canvas.addEventListener('mousemove', onmousemove,false);
 canvas.addEventListener('mouseup', onmouseup,false);
+});

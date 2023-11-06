@@ -729,7 +729,7 @@ header input{
 }
 
 
-#Enviar {
+.Enviar {
     margin: auto;
     position: relative;
     background: transparent;
@@ -748,7 +748,7 @@ header input{
     left: 394px;
 
 }
-#Enviar::before {
+.Enviar::before {
     content: '';
     display: block;
     position: absolute;
@@ -761,7 +761,7 @@ header input{
     filter: blur(30px);
     transform: translateX(-130px) skewX(-15deg);
 }
-#Enviar::after {
+.Enviar::after {
     content: '';
     display: block;
     position: absolute;
@@ -774,16 +774,16 @@ header input{
     filter: blur(30px);
     transform: translate(-100px) skewX(-15dex)
 }
-#Enviar:hover {
+.Enviar:hover {
     background: var(--acento-sombra1);
     cursor: pointer;
 }
-#Enviar:hover::before {
+.Enviar:hover::before {
     transform: translateX(300px) skewX(-15deg);
     opacity: .8;
     transition: .7s;
 }
-#Enviar:hover::after {
+.Enviar:hover::after {
     transform: translateX(300px) skewX(-15deg);
     opacity: 1;
     transition: .7s;

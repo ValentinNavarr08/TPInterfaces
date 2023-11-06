@@ -1,13 +1,13 @@
 class Tablero{
-    constructor(cantfilas,cantcolumnas,cantGanar,ctx){
+    constructor(cantfilas,cantcolumnas,cantGanar1,ctx){
         this.cantcolumnas = cantcolumnas;
         this.cantfilas = cantfilas;
-        this.cantGanar = cantGanar;
+        this.cantGanar = cantGanar1;
         this.ctx = ctx;
         this.matriz = [];
         this.desfasajeX = -30.5;
         this.desfasajeY = -15;
-        this.Xinicial = 150;
+        this.Xinicial = 190;
         this.Yinicial = 130;
         this.Xfinal = 950;
         this.Yfinal = 600;
@@ -15,27 +15,30 @@ class Tablero{
         this.tamanoCasilleros;
     }
 
+    //Solo para fines de debug
     imprimir() {
         console.log(this.matriz);
     }
 
-     crear() {
+    //Crea la matriz 
+    crear() {
+        //Determina el ancho y el alto con posiciones estaticas predefinidas en el constructor
         let anchoTablero = this.Xfinal - this.Xinicial;
         let altoTablero = this.Yfinal - this.Yinicial;
 
-    
+        //calcula en base al alto y ancho el tamaño y el espaciado de los casilleros
         let tamanoCasillero = Math.min(anchoTablero / this.cantcolumnas, altoTablero / this.cantfilas);
         let espaciadoX = anchoTablero / this.cantcolumnas;
         let espaciadoY = altoTablero / this.cantfilas;
        
 
-    
+        //Llena la matriz vacia de casilleros 
         for (let j = 0; j < this.cantfilas; j++) {
             let arr = new Array;
             for (let i = 0; i < this.cantcolumnas; i++) {
                 let posX = this.Xinicial + i * espaciadoX;
                 let posY = this.Yinicial + j * espaciadoY;
-                let casillero = new Casillero(posX, posY, tamanoCasillero / 2, 'grey', this.ctx);
+                let casillero = new Casillero(posX, posY, tamanoCasillero / 2, "grey", this.ctx);
                 arr.push(casillero);
             }
             this.matriz.push(arr);
@@ -43,11 +46,8 @@ class Tablero{
         }
     }
 
+    //Recorre y hace .draw a todo lo que tiene, sea fichas o casilleros
     dibujar(){
-        
-        let casfin = new Casillero(this.Xfinal, this.Yfinal, 5, "red", this.ctx);
-        casfin.draw();
-
          for(var j=0; j<this.cantfilas; j++) {
             for(var i=0; i<this.cantcolumnas; i++){
                 this.matriz[j][i].draw();
@@ -55,7 +55,7 @@ class Tablero{
         } 
     }
 
-
+    // Determina si la ficha esta encima de una casillero 
      estaencimacasillero(ficha){
         let posXFicha = ficha.getPosX();
         let posYFicha = ficha.getPosY();
@@ -83,7 +83,7 @@ class Tablero{
         } 
 
 
-
+        //Se inserta la ficha en el casillero más cercano
         insertarFichaEnCasillero(ficha) {
             let mejorCasillero = null;
             let maxPixelesDentro = 0;
@@ -140,12 +140,15 @@ class Tablero{
 
 
 
-
+    //Se recoree la matriz y devuelve ganador si lo hay
     verificarVictoria(ficha) {
             const matriz = this.matriz;
             const jugador = ficha.getJugador();
             const cantGanar = this.cantGanar;
-        
+
+            console.log(jugador);
+         
+            //Cuenta la cantidad de fichas 
             const verificarLinea = (arr) => {
                 let contador = 0;
                 for (let i = 0; i < arr.length; i++) {
@@ -208,6 +211,7 @@ class Tablero{
             return null;
         }
     
+
         colocarFicha(ficha) {
             // (coloca la ficha en la posición correspondiente en la matriz)
             let posXFicha = ficha.getPosX();

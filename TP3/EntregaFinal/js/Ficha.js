@@ -53,6 +53,7 @@ getFill(){
     return this.fill;
 }
 
+//dibuja la imagen en la ficha
 draw(){
             this.ctx.save();
             this.ctx.beginPath();

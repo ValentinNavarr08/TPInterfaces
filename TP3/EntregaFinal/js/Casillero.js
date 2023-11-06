@@ -42,7 +42,7 @@ getPosY(){
 getFill(){
     return this.fill;
 }
-
+//dibuja el casillero
 draw(){
     this.ctx.fillStyle = this.fill;
     this.ctx.beginPath();
