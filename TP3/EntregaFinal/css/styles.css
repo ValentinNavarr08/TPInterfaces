@@ -2934,3 +2934,7 @@ form {
       transform: translateY(-50%) scale(1);
     }
   }
+
+  .borde{
+    border-bottom: 5px solid white;
+  }

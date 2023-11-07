@@ -86,22 +86,8 @@
         <p style="
         position: absolute;
         z-index: 2;
-        left: 568px;
-        /* color: black; */
+        left: 545px;
         ">Tiempo restante</p>
-        <div class="IUjugador" style="
-        color: darkred;
-        position: absolute;
-       left: 32px;
-       border-radius: 10px;
-        "></div>
-        <div class="IUjugador" 
-        style="
-        color: blue;
-         position: absolute;
-        left: 32px;
-        border-radius: 10px;
-         "></div>
         <div id="timer" style="
         width: 261px;
         font-weight: bold;
@@ -110,11 +96,45 @@
         position: absolute;
         z-index: 1;
         background-color: black;
-        left: 488px;
+        left: 465px;
         top: 260.9px;
         padding-top: 10px;
         text-align: center;
         ">24.5</div>
+        <div class="UIjugador" style="
+        width: 261px;
+        font-weight: bold;
+        font-size: 50px;
+        height: 73px;
+        position: absolute;
+        z-index: 1;
+        background-color: #a10707;
+        left: 204px;
+        top: 260.9px;
+        padding-top: 10px;
+        text-align: center;">
+        <h2 style="
+        position: relative;
+        top: 15px;">
+        Jugador 1</h2>
+        </div>
+       <div class="UIjugador" style="
+       width: 261px;
+       font-weight: bold;
+       font-size: 50px;
+       height: 73px;
+       position: absolute;
+       z-index: 1;
+       background-color: blue;
+       left: 726px;
+       top: 260.9px;
+       padding-top: 10px;
+       text-align: center;">
+       <h2 style="
+       position: relative;
+       top: 15px;
+        ">Jugador 2</h2>
+       </div>
       <button style="
       cursor: pointer;
       background: hsl(251, 36%, 66%);
@@ -148,44 +168,44 @@
                 left: 162px;
                 /* height: 150px; */
                 ">
-                    <h3>Ficha Azul</h3>
+                <h3>Ficha Rojo</h3>
+            
+                <label class="radio-control1">
+                   <input type="radio" name="imgRojo" value="images/rojo1.png">
+                   <img src="images/rojo1.png" alt="option">
+               </label>
+               
+               <label class="radio-control1">
+                   <input type="radio" name="imgRojo" value="images/rojo2.png">
+                   <img src="images/rojo2.png" alt="option">
+               </label>
+
+               <label class="radio-control1">
+                   <input type="radio" name="imgRojo" value="images/rojo3.png">
+                   <img src="images/rojo3.png" alt="option">
+               </label>
                     
-                    <label class="radio-control1">
-                        <input  type="radio" name="imgAzul" value="images/azul1.png">
-                        <img src="images/azul1.png" alt="option">
-                    </label>
-                    
-                    <label class="radio-control1">
-                        <input type="radio" name="imgAzul" value="images/azul2.png">
-                        <img src="images/azul2.png" alt="option">
-                    </label>
-                    
-                    <label class="radio-control1">
-                        <input type="radio" name="imgAzul" value="images/azul3.png">
-                        <img src="images/azul3.png" alt="option">
-                    </label>
                 </div>
                 <div style="
                 position: absolute;
                 top: 10px;
                 left: 633px;
                 ">
-                    <h3>Ficha Rojo</h3>
-            
-                     <label class="radio-control1">
-                        <input type="radio" name="imgRojo" value="images/rojo1.png">
-                        <img src="images/rojo1.png" alt="option">
-                    </label>
-                    
-                    <label class="radio-control1">
-                        <input type="radio" name="imgRojo" value="images/rojo2.png">
-                        <img src="images/rojo2.png" alt="option">
-                    </label>
-    
-                    <label class="radio-control1">
-                        <input type="radio" name="imgRojo" value="images/rojo3.png">
-                        <img src="images/rojo3.png" alt="option">
-                    </label>
+                <h3>Ficha Azul</h3>
+                <label class="radio-control1">
+                    <input  type="radio" name="imgAzul" value="images/azul1.png">
+                    <img src="images/azul1.png" alt="option">
+                </label>
+                
+                <label class="radio-control1">
+                    <input type="radio" name="imgAzul" value="images/azul2.png">
+                    <img src="images/azul2.png" alt="option">
+                </label>
+                
+                <label class="radio-control1">
+                    <input type="radio" name="imgAzul" value="images/azul3.png">
+                    <img src="images/azul3.png" alt="option">
+                </label>
                 </div>
                 <div style="
                 position: absolute;

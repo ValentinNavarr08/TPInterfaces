@@ -13,6 +13,8 @@ const reiniciar = document.getElementById('reset');
 const boton = document.getElementById('jugar');
 const form = document.getElementById('form');
 const menu = document.getElementById("menu");
+const divsJugador = document.querySelectorAll(".UIjugador");
+
 
 var imgAzul = new Image()
 imgAzul.src = document.querySelector('input[name="imgAzul"]:checked').value;
@@ -65,7 +67,10 @@ drawfichas(fichasred);
 console.log(fichasblue);
 console.log(fichasred);
 
+// Empieza el jugador rojo (1)
 var jugadoractivo = "jugador1";
+console.log(divsJugador);
+divsJugador[0].classList.add("borde");
 
 img.src = "images/fondo.png";
 img.height = canvasHeight;
@@ -104,7 +109,7 @@ function crearfichas(estilo, Tam) {
     return fichas;
     } 
     else{
-        var posinicialx = 1000;
+        var posinicialx = 1020;
         var posinicialy = 60;
         let fichas = [];
         for(let i = 0;i <18;i++){
@@ -142,23 +147,26 @@ function onmouseup(e){
         //se redibuja todo
         drawFigure();
 
-        // logica para cambiar turnos
-        cambiarTurno();
         //se pregunta si hay ganador
         if(ganador != null){
             //logica de ganar
+            desactivarFichas();
             mostrarMensaje(ganador + " WIN");
             canvas.style.opacity = 0.7;
             canvas.classList.add("rotate");
             console.log("win");
             timer.stop();
+        }else{
+            //si no hay ganador se cambia el turno
+            // logica para cambiar turnos
+            cambiarTurno();
         }
+
+        
       
     }
 
 }
-
-
 
 function mostrarMensaje(mensaje) {
     // Obtenemos el elemento con id "mensaje"
@@ -173,6 +181,16 @@ function mostrarMensaje(mensaje) {
 
     // Asignar el mensaje al contenido del elemento
     mensajeElement.textContent = mensaje;
+}
+
+
+function desactivarFichas(){
+    fichasblue.forEach(ficha => {
+        ficha.setClickeable(false); 
+    });
+    fichasred.forEach(ficha => {
+        ficha.setClickeable(false); 
+    });
 }
 
 function onmousemove(e){
@@ -253,19 +271,21 @@ timer.start();
 
 //Cambia el turno del jugador
 function cambiarTurno(){
-    // Detener el temporizador actual si está en funcionamiento
+    // Detener el temporizador actual si está en funcionamient
     if (timer) {
-        timer.stop();
         drawFigure();
 
         //Cambia el jugador activo
         if (jugadoractivo == "jugador1"){
+            divsJugador[0].classList.remove("borde");
+            divsJugador[1].classList.add("borde");
             jugadoractivo = "jugador2";
         }
         else{
+            divsJugador[1].classList.remove("borde");
+            divsJugador[0].classList.add("borde");
             jugadoractivo = "jugador1";
         }
-        
     }
     
 
