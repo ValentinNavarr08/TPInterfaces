@@ -147,12 +147,32 @@ function onmouseup(e){
         //se pregunta si hay ganador
         if(ganador != null){
             //logica de ganar
-            alert(ganador);
+            mostrarMensaje(ganador + " WIN");
+            canvas.style.opacity = 0.7;
+            canvas.classList.add("rotate");
+            console.log("win");
             timer.stop();
         }
       
     }
 
+}
+
+
+
+function mostrarMensaje(mensaje) {
+    // Obtenemos el elemento con id "mensaje"
+    let mensajeElement = document.getElementById("mensaje");
+
+    // Si no existe, crearlo
+    if (!mensajeElement) {
+        mensajeElement = document.createElement("div");
+        mensajeElement.id = "mensaje";
+        document.body.appendChild(mensajeElement);
+    }
+
+    // Asignar el mensaje al contenido del elemento
+    mensajeElement.textContent = mensaje;
 }
 
 function onmousemove(e){
@@ -255,6 +275,8 @@ function cambiarTurno(){
 
 //Funcion de boton Reinicio
 function resetearJuego(){
+    document.getElementById("mensaje").textContent = "";
+    document.getElementById("canvas").style.opacity = 1;
     if(lastClickedFigure != null) {
         lastClickedFigure.setResaltado(false);
     }

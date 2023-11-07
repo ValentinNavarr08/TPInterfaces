@@ -145,6 +145,7 @@ meter {
     --font-size-grande: 19px;
     --font-size-mediano: 16px;
     --font-size-chico: 14px;
+    --font-size-inmenso:80px;
 
     --handle-size: 3rem;
     --img-gap: .25rem
@@ -2449,6 +2450,25 @@ width: 50px;
 
 
 /*----------------------------- 4 EN LINEA -----------------*/
+
+#mensaje{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: var(--font-size-inmenso);
+    color: var(--acento);
+    position: absolute;
+    left: 320px;
+    top: 500px;
+
+}
+.rotate {
+    transform: rotate(360deg); /* Ajusta el ángulo de rotación según lo desees */
+    transition: transform 0.5s ease-in-out;
+}
+
+
+
+
+
 nav{
     position: relative;
     left: 150px;
@@ -2490,7 +2510,7 @@ nav svg{
 
 .descripcion{
     position: relative;
-    top: 250px;
+    top: 150px;
 }
 .descripcion h1{
     position: relative;
@@ -2545,7 +2565,7 @@ left: 300px;
 width: 743px;
 height: 135px;
 left: 300px;
-top: 200px;
+top: 120px;
 color: #FFF;
 font-family: Inter;
 font-size: 24px;
@@ -2556,7 +2576,7 @@ line-height: 24px;
 
 .controles h2{
     position: absolute;
-    top: 580px;
+    top: 510px;
     left: 215px;
     text-decoration:underline;
 }
@@ -2569,11 +2589,14 @@ line-height: 24px;
 }
 .mouse{
     position: absolute;
+    top: 300px;
 }
-
+.mouse p{
+    top: 200px;
+}
 .reseñas{
     position: absolute;
-    top: 2000px;
+    top: 2100px;
     left: 200px;
     margin-top: -340px;
 }
