@@ -1,4 +1,3 @@
-
 // Logica general
 form.addEventListener("submit", function(event){
 event.preventDefault();
@@ -14,6 +13,7 @@ const boton = document.getElementById('jugar');
 const form = document.getElementById('form');
 const menu = document.getElementById("menu");
 const divsJugador = document.querySelectorAll(".UIjugador");
+seTermino = false;
 
 
 var imgAzul = new Image()
@@ -69,7 +69,6 @@ console.log(fichasred);
 
 // Empieza el jugador rojo (1)
 var jugadoractivo = "jugador1";
-console.log(divsJugador);
 divsJugador[0].classList.add("borde");
 
 img.src = "images/fondo.png";
@@ -140,7 +139,7 @@ function onmouseup(e){
     isMouseDown = false;
     if(lastClickedFigure != null && lastClickedFigure.isClickeable() && tablero.estaencimacasillero(lastClickedFigure)){
         // llama a colocar ficha que devuelve si hay un ganador o no
-        let ganador = tablero.colocarFicha(lastClickedFigure);
+        var ganador = tablero.colocarFicha(lastClickedFigure);
         lastClickedFigure.setClickeable(false);
         // Sacamos la ficha de la mano del jugador para que no pueda acceder (del array).
         sacarFicha();
@@ -150,13 +149,15 @@ function onmouseup(e){
         //se pregunta si hay ganador
         if(ganador != null){
             //logica de ganar
+            seTermino = true;
             desactivarFichas();
             mostrarMensaje(ganador + " WIN");
             canvas.style.opacity = 0.7;
             canvas.classList.add("rotate");
             console.log("win");
-            timer.stop();
-        }else{
+            timer.stop(); 
+        }
+        else{
             //si no hay ganador se cambia el turno
             // logica para cambiar turnos
             cambiarTurno();
@@ -252,29 +253,35 @@ function sacarFicha() {
     } 
 }
 
+const timer = new Timer(actualizarTemporizador, 10);
+timer.start();
+
 //Actualiza el reloj
 function actualizarTemporizador(tiempoRestanteEnMilisegundos) {
-    const segundos = Math.floor(tiempoRestanteEnMilisegundos / 1000);
-    const milisegundos = Math.floor((tiempoRestanteEnMilisegundos % 1000) / 100);
-
-    //Actualiza el timer en pantalla
-    timerElement.textContent = `${segundos}.${milisegundos}`;
-
-    if (tiempoRestanteEnMilisegundos === 0) {
+    if (tiempoRestanteEnMilisegundos <= 0 && !seTermino) {
         // Cambia el turno automáticamente
         cambiarTurno();
     }
-}
+        const segundos = Math.floor(tiempoRestanteEnMilisegundos / 1000);
+        const milisegundos = Math.floor((tiempoRestanteEnMilisegundos % 1000) / 100);
 
-const timer = new Timer(actualizarTemporizador, 30);
-timer.start();
+    //Actualiza el timer en pantalla
+     
+
+        if (!seTermino){
+            timerElement.textContent = `${segundos}.${milisegundos}`;
+        }
+        else{
+            timerElement.textContent = `${0}.${0}`;
+        }  
+        
+}
 
 //Cambia el turno del jugador
 function cambiarTurno(){
     // Detener el temporizador actual si está en funcionamient
     if (timer) {
         drawFigure();
-
         //Cambia el jugador activo
         if (jugadoractivo == "jugador1"){
             divsJugador[0].classList.remove("borde");
@@ -290,7 +297,7 @@ function cambiarTurno(){
     
 
     // Iniciar un nuevo temporizador para el nuevo turno
-    timer.start();
+    timer.start(); 
 }
 
 //Funcion de boton Reinicio

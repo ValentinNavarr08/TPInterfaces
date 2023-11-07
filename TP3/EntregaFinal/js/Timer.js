@@ -11,7 +11,7 @@ class Timer {
         this.startTime = Date.now();
         this.timerInterval = setInterval(() => this.update(), 100);
     }
-    //para el timer 
+    //para el timer
     stop() {
         clearInterval(this.timerInterval);
     }
@@ -21,14 +21,13 @@ class Timer {
         const elapsedTime = Date.now() - this.startTime;
         const remainingTime = Math.max(this.duration - elapsedTime, 0);
         if (this.callback) {
-            this.callback(remainingTime);
-        }
-
-        if (remainingTime <= 0) {
-            this.stop();
-            if (this.callback) {
+            if (remainingTime <= 0){
+                this.stop();
                 this.callback(0);
+            }else{
+                this.callback(remainingTime);
             }
+            
         }
     }
 }
