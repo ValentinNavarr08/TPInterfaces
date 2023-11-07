@@ -307,6 +307,7 @@ function resetearJuego(){
     if(lastClickedFigure != null) {
         lastClickedFigure.setResaltado(false);
     }
+    seTermino = false;
     //Se vuelve a crear todo de nuevo
     fichasblue = [];
     fichasblue = crearfichas(fichablue, Tficha);
