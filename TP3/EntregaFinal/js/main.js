@@ -253,7 +253,7 @@ function sacarFicha() {
     } 
 }
 
-const timer = new Timer(actualizarTemporizador, 30);
+const timer = new Timer(actualizarTemporizador, 10);
 timer.start();
 
 //Actualiza el reloj
@@ -322,6 +322,7 @@ function resetearJuego(){
     tablero = new Tablero(CantF,CantC,cantGan, ctx);
     tablero.imprimir();
     tablero.dibujar();
+    timer.start();
 
 }
 
