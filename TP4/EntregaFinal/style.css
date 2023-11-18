@@ -119,16 +119,19 @@ body{
     z-index: -1;
 }
 #fondo4{
-    top: -290px;
+    top: -504px;
+}
+#fondo5{
+    top: 220px;
 }
 #fondo6{
-    top: 350px;     top: 468px;
+        top: 468px;
 }
 #fondo7{
-    top: 718px;
+    top: 558px;
 }
 #fondo8{
-    top: 714px;
+    top: 554px;
 } 
 #edificios{
     position: relative;
@@ -491,4 +494,16 @@ padding-top: 10px;
     letter-spacing: 2.2px;
     text-align: center;
     color: #02187E;
+}
+.fondoamigosdiv{
+    top: 250px;
+}
+.seccion7{
+    position: absolute;
+    left: 100px;
+    top: 2370px;
+}
+#heroe2seccion7{
+    position: relative;
+    top: 40px;
 }
