@@ -119,27 +119,23 @@ body{
     z-index: -1;
 }
 #fondo4{
-    top: -504px;
+    top: -369px;
 }
 #fondo5{
-    top: 220px;
+    top: 366px;
 }
 #fondo6{
-        top: 468px;
+    top: 606px;
 }
 #fondo7{
-    top: 558px;
+    top: 653px;
 }
 #fondo8{
-    top: 554px;
+    top: 650px;
 } 
 #edificios{
     position: relative;
     top: -858px;
-}
-
-.imgflex{
-    width: 100%;
 }
 
 .deptoizq{
@@ -234,16 +230,17 @@ footer{
 }
 .contenedorcentral > section{
     aspect-ratio: 16/9;
-    position: relative;
     border: solid 1px rgb(255, 25, 25);
 }
 #sectionDuende{
     padding-top: 140px;
     height: 938px;
     width: 1080px;
-    animation: parallax1 linear;
-    animation-timeline: scroll();
 }
+/* #sectionDuende > *{
+    animation: duende linear;
+    animation-timeline: scroll(self);
+} */
 
 .Tblanco{
     color: #FFF;
@@ -276,8 +273,9 @@ line-height: normal;
     position: absolute;
     width: 553px;
     height: 921px;
-    --parallax-speed1:  -2;
-
+    --parallax-speed1: 10;
+    animation: duende cubic-bezier(0.4, 0, 1, 1);
+    animation-timeline: scroll();
 }
 #duende > img {
     width: 100%;
@@ -330,7 +328,7 @@ padding-top: 10px;
 }
 #cardsjuego{
     width: 664.89px;
-    height: 911.24px;
+    height: 850.24px;
 
 }
 #cardsjuego > img {
@@ -407,6 +405,12 @@ padding-top: 10px;
             translateY(calc(var(--parallax-speed1) * 200px));
         }
 }
+@keyframes duende{
+    to {
+             transform: 
+               translateY(calc(var(--parallax-speed1) * 200px));
+           }
+   }
 #vengadores > h2{
     width: 436px;
 }
@@ -423,6 +427,7 @@ padding-top: 10px;
     position: absolute;
 }
 #P2fondo1{
+    box-shadow: 26px 29px 41px 14px rgba(0, 0, 0, 0.25);
     z-index: 1;
 }
 #P2fondo2{
@@ -446,24 +451,6 @@ padding-top: 10px;
     top: -207px;
     z-index: 4;
 }
-
-.img1{
-    position: absolute;
-    top: 170px;
-
-}
-.img2{
-    position: absolute;
-    top: 560px;
-}
-.img3{
-    position: absolute;
-    top: 970px;
-}
-.img4{
-    position: absolute;
-    top: 1500px;
-}
 .fondocomprar{
     display: block;
     flex-direction: row;
@@ -483,6 +470,8 @@ padding-top: 10px;
     border-radius: 111px;
     border: 8px solid var(--2982-ff, #2982FF);
     background: #FFE901;
+    -webkit-text-stroke:2px;
+
 
     /* Drop Shadow */
     box-shadow: 4px 5px 0px 0px #02187E;
@@ -497,13 +486,152 @@ padding-top: 10px;
 }
 .fondoamigosdiv{
     top: 250px;
+    display: flex;
+    flex-direction: column;
 }
 .seccion7{
-    position: absolute;
-    left: 100px;
-    top: 2370px;
+    padding-left: 50px;
+    padding-top: 495px;
+    height: 1055px;
+    width: 100%;
 }
 #heroe2seccion7{
     position: relative;
     top: 40px;
+}
+.amigos{
+    padding-top: 97px;
+}
+p{
+    color: #000;
+                                font-family: Lato;
+                                font-size: 20px;
+                                font-style: normal;
+                                font-weight: 400px;
+                                line-height: 94.5%;
+}
+h1{
+    color: #000;
+                                font-family: Lato;
+                                font-size: 40px;
+                                font-style: normal;
+                                font-weight: 400px;
+                                line-height: 94.5%; 
+}
+#tituloAmi{
+    width: 100%;
+}
+.imagenesAmigos{
+    display: block;
+    width: 50%;
+}
+.imagenesAmigos >img{
+    width: 100%;
+    padding-left: 6px;
+    padding-bottom: 90px;
+}
+.textoAmigos{
+    width: 50%;
+}
+.texto {
+    padding-inline: 38px;
+    padding-bottom: 92px;
+}
+.texto2{
+    padding-top: 36px;
+}
+.texto3{
+    padding-top: 20px;
+}
+.texto4{
+    padding-top: 36px;
+}
+.texto h1{
+    padding-bottom: 30px;
+}
+#columnasAmigos{
+    display: flex;
+    flex-direction: row;
+    padding-top: 71px;
+}
+.img4{
+    padding-top: 112px;
+}
+.seccion8{
+    padding-top: 240px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.seccion8 > h2{
+    color: #000;
+text-align: center;
+font-family: Lato;
+font-size: 60px;
+font-style: normal;
+font-weight: 600;
+line-height: 94.5%; /* 56.7px */
+}
+.seccion8  div> input{
+    width: 562px;
+    height: 100px;
+    flex-shrink: 0;
+    border-radius: 50px 0px 0px 50px;
+border-top: 9px solid #2982FF;
+border-bottom: 9px solid #2982FF;
+border-left: 9px solid #2982FF;
+background: #FFF;
+
+/* Drop Shadow */
+box-shadow: 4px 5px 0px 0px #02187E;
+}
+.seccion8 div > button{
+    width: 218px;
+    height: 100px;
+    border-radius: 0px 50px 50px 0px;
+    border: 9px solid #2982FF;
+    background: #FFE901;
+    box-shadow: 4px 5px 0px 0px #02187E;
+}
+.seccion8 > p{
+    width: 578px;
+height: 95px;
+flex-shrink: 0;
+color: #000;
+font-family: Lato;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 94.5%; /* 18.9px */
+}
+.seccion8 span{
+    width: 578px;
+    height: 95px;
+    flex-shrink: 0;
+    color: #000;
+font-family: Lato;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 94.5%;
+text-decoration-line: underline;
+}
+#Tobacco {
+    display: flex;
+    width: 100%;
+}
+.footercontenido{
+    padding-top: 558px;
+}
+.footercontenido >p{
+    width: 820px;
+    color: #FFF;
+font-family: Lato;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 94.5%; /* 18.9px */
+letter-spacing: 2.2px;
 }
