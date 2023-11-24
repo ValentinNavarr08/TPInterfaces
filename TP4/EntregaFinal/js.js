@@ -42,7 +42,7 @@ document.addEventListener("scroll", () => {
     let logo = document.getElementById('logo');
 
     
-if(posScroll > 150) {
+if(posScroll > 140) {
         let logonav = document.getElementById('logonav');
         logonav.classList.remove("noseve");
         logo.classList.add("noseve");
@@ -68,12 +68,117 @@ let contenedor = document.getElementById("fondo7");
 spider1.addEventListener("mouseenter", function() {
     contenedor.classList.add("arribade8");
     
+    spider1.classList.add("selected");
+    spider2.classList.remove("selected");
+    spider3.classList.remove("selected");
+
+
+
+    spider1.classList.remove("blur");
     spider2.classList.add("blur");
     spider3.classList.add("blur");
 
-    
+    bgspider2.classList.add("noesta");
+    bgspider3.classList.add("noesta");
     bgspider1.classList.remove("noesta");
+    bgspider1.classList.add("esta");
 
 });
+spider2.addEventListener("mouseenter", function() {
+    contenedor.classList.add("arribade8");
+    
+    spider2.classList.add("selected");
+    spider1.classList.remove("selected");
+    spider3.classList.remove("selected");
+
+
+    spider2.classList.remove("blur");
+    spider1.classList.add("blur");
+    spider3.classList.add("blur");
+
+    bgspider1.classList.add("noesta");
+    bgspider3.classList.add("noesta");
+    bgspider2.classList.remove("noesta");
+    bgspider2.classList.add("esta");
+
+});
+spider3.addEventListener("mouseenter", function() {
+    contenedor.classList.add("arribade8");
+
+    spider3.classList.add("selected");
+    spider1.classList.remove("selected");
+    spider2.classList.remove("selected");
+
+
+    spider3.classList.remove("blur");
+    spider1.classList.add("blur");
+    spider2.classList.add("blur");
+
+    bgspider1.classList.add("noesta");
+    bgspider2.classList.add("noesta");
+    bgspider3.classList.remove("noesta");
+    bgspider3.classList.add("esta");
+
+});
+
+
+
+document.addEventListener("scroll", () => {
+    let posScroll = window.scrollY;
+
+    let contenedorImgAmigos = document.getElementById("contenedorImgAmigos");
+    let img1 = "img/image21.png";
+    let img2 = "img/image9.png";
+    let img3 = "img/image10.png";
+    let img4 = "img/image6.png";
+
+
+    let txt1 = document.querySelector(".texto1");
+    let txt2 = document.querySelector(".texto2");
+    let txt3 = document.querySelector(".texto3");
+    let txt4 = document.querySelector(".texto4");
+
+    contenedorImgAmigos.innerHTML= "<img src="+img1+">";
+
+    if (posScroll>3910 && posScroll<5300){
+        contenedorImgAmigos.classList.add("Estatico");
+    }
+    else{
+        contenedorImgAmigos.classList.remove("Estatico");
+    }
+
+    if(posScroll>3910 && posScroll< 4200){
+        contenedorImgAmigos.innerHTML= "<img src="+img1+">";
+        txt1.style.opacity = 1;
+        txt2.style.opacity = 0;
+        txt3.style.opacity = 0;
+        txt4.style.opacity = 0;
+    }
+    if(posScroll>4200 && posScroll< 4600){
+        contenedorImgAmigos.innerHTML= "<img src="+img2+">";
+        txt1.style.opacity = 0;
+        txt2.style.opacity = 1;
+        txt3.style.opacity = 0;
+        txt4.style.opacity = 0;
+    }
+    if(posScroll>4600 && posScroll< 5000){
+        contenedorImgAmigos.innerHTML= "<img src="+img3+">";
+        txt1.style.opacity = 0;
+        txt2.style.opacity = 0;
+        txt3.style.opacity = 1;
+        txt4.style.opacity = 0;
+    }
+    if(posScroll>5000){
+        contenedorImgAmigos.innerHTML= "<img src="+img4+">";
+        txt1.style.opacity = 0;
+        txt2.style.opacity = 0;
+        txt3.style.opacity = 0;
+        txt4.style.opacity = 1;
+    }
+
+  
+    
+ 
+}) 
 
 /* TODO : centrar spidermans */
