@@ -21,9 +21,9 @@ document.addEventListener("scroll", () => {
     const getStyle = id => document.getElementById(id).style;
 
 
-    getStyle('cardjuego1').transform = new DOMMatrix("translateY("+ posScroll*0.02 +"px)  rotate(346deg)");
-    getStyle('cardjuego2').transform = new DOMMatrix("translateY("+ posScroll*0.02 +"px)  rotate(346deg)");
-    getStyle('cardjuego3').transform = new DOMMatrix("translateY("+ posScroll*0.02 +"px)  rotate(346deg)");
+    getStyle('cardjuego1').transform = new DOMMatrix("translateY("+ posScroll*0.02 +"px)  perspective(300px) rotateY(25deg) rotate(-15deg) scale(.9)");
+    getStyle('cardjuego2').transform = new DOMMatrix("translateY("+ posScroll*0.02 +"px)  perspective(300px) rotateY(25deg) rotate(-15deg) scale(.9)");
+    getStyle('cardjuego3').transform = new DOMMatrix("translateY("+ posScroll*0.02 +"px)  perspective(300px) rotateY(25deg) rotate(-15deg) scale(.9)");
 
 
 })

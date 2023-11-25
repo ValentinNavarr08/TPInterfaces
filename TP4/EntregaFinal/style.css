@@ -758,26 +758,46 @@ nav button{
 }
 #cardjuego1{
     position: relative;
-    transform: rotate(346deg);
     top: -11px;
+    transform: perspective(300px) rotateY(25deg) rotate(-15deg) scale(.9);
     transition: all 0.888s ease-in-out;
+    width: 80%;
+    border-radius: 20px;
 }
 #cardjuego1:hover{
     scale: 115%;
     transform: rotate(0deg) !important;
+    background-color:  pink ;
+    border: solid 5px hsla(270, 46%, 25%, 1);
 }
 
 #cardjuego2{
-    transform: rotate(333.53deg);
     position: relative;
     top: -143px;
+    transform: perspective(300px) rotateY(25deg) rotate(-15deg) scale(.9);
     transition: all 0.888s ease-in-out;
+    width: 80%;
+    border-radius: 20px;
+}
+#cardjuego2:hover{
+    scale: 115%;
+    transform: rotate(0deg) !important;
+    background-color:  pink ;
+    border: solid 5px hsla(270, 46%, 25%, 1);
 }
 #cardjuego3{
-    transform: rotate(323.98deg);
     position: relative;
     top: -227px;
+    transform: perspective(300px) rotateY(25deg) rotate(-15deg) scale(.9);
     transition: all 0.888s ease-in-out;
+    width: 80%;
+    border-radius: 20px;
+}
+#cardjuego3:hover{
+    scale: 115%;
+    transform: rotate(0deg) !important;
+    background-color:  pink ;
+    border: solid 5px hsla(270, 46%, 25%, 1);
 }
 /* @media (max-width: 1080px) {
 
