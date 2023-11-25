@@ -17,7 +17,30 @@ document.addEventListener("scroll", () => {
 
     let duende = document.getElementById('duende');
     duende.style.transform = "translateY("+ posScroll*0.03 +"px)";
+
+    const getStyle = id => document.getElementById(id).style;
+
+
+    getStyle('cardjuego1').transform = new DOMMatrix("translateY("+ posScroll*0.02 +"px)  rotate(346deg)");
+    getStyle('cardjuego2').transform = new DOMMatrix("translateY("+ posScroll*0.02 +"px)  rotate(346deg)");
+    getStyle('cardjuego3').transform = new DOMMatrix("translateY("+ posScroll*0.02 +"px)  rotate(346deg)");
+
+
 })
+
+    let card1 = document.getElementById("cardjuego1");
+    let card2 = document.getElementById("cardjuego2");
+    let card3 = document.getElementById("cardjuego3");
+
+    card1.addEventListener("mouseenter", function() {
+
+
+/*  TODO:terminar  */
+
+
+    })
+
+
 
 
 document.addEventListener("scroll", () => {
@@ -42,13 +65,15 @@ document.addEventListener("scroll", () => {
     let logo = document.getElementById('logo');
 
     
-if(posScroll > 140) {
+if (!(posScroll>= 0 && posScroll < 160)) {
         let logonav = document.getElementById('logonav');
         logonav.classList.remove("noseve");
         logo.classList.add("noseve");
     }
     else{
-        logo.style.scale = 1 - posScroll / 200;
+        logonav.classList.add("noseve");
+        logo.classList.remove("noseve");
+        logo.style.scale = 1 - posScroll / 800;
     }
  
 }) 
@@ -181,4 +206,3 @@ document.addEventListener("scroll", () => {
  
 }) 
 
-/* TODO : centrar spidermans */
