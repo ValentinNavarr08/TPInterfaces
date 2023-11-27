@@ -108,7 +108,9 @@ body{
     position: relative;
     width: 100%;
 }
-
+.contenedorflex > img{
+    width: 100%;
+}
 #fondo2{
     top: -70px;
 }
@@ -654,7 +656,7 @@ text-decoration-line: underline;
     width: 100%;
 }
 .footercontenido{
-    padding-top: 558px;
+    margin-top: 558px;
 }
 .footercontenido >p{
     width: 820px;
@@ -799,9 +801,37 @@ nav button{
     background-color:  pink ;
     border: solid 5px hsla(270, 46%, 25%, 1);
 }
-/* @media (max-width: 1080px) {
+#sprite{
+    position: relative;
+    margin: auto;
+    height: 79px;
+    width: 35px;
+    top: -1000px;
+    left: -354px;
+    background-image: url(img/spidermanSprite.png);
+    animation: mover 2s steps(7) infinite;
+    transform: rotate(5deg);
+}
+@keyframes mover{
+    0% { background-position:0 }
 
-    .contenedorcentral{
-        left: 200px;
-    }
-  } */
+  100% { background-position:-289px }
+}
+
+#sprite:hover{
+    position: relative;
+    margin: auto;
+    height: 70px;
+    width: 71px;
+    top: -1000px;
+    left: -354px;
+    background-image: url(img/spidermanSprite2.png);
+    animation: mover2 2s steps(2) infinite;
+    transform: rotate(285deg);
+}
+
+@keyframes mover2{
+    0% {background-position:0}
+
+  100% { background-position:-411px }
+}
