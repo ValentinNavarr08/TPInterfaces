@@ -491,18 +491,19 @@ padding-top: 10px;
     position: absolute;
     top: -20px;
     left: 100px;
-    z-index: 100;
+    z-index: 10;
     aspect-ratio: 16/9;
     border: solid 1px rgb(255, 25, 25);
 }
-.fondocomprar button{
+.btn-comprarahora{
     width: 292px;
     height: 50px;
-    flex-shrink: 0;
     border-radius: 111px;
     border: 8px solid var(--2982-ff, #2982FF);
     background: #FFE901;
     -webkit-text-stroke:2px;
+    z-index: 90;
+   
 
 
     /* Drop Shadow */
@@ -516,6 +517,13 @@ padding-top: 10px;
     text-align: center;
     color: #02187E;
 }
+
+.btn-comprarahora:hover{
+    background-color: #e8bf08; /* Un tono dorado más oscuro */
+  box-shadow: 4px 8px 0px 0px #02187E; /* Ajuste de la sombra */
+  transform: translateY(5px);
+}
+
 .fondoamigosdiv{
     top: 250px;
     display: flex;
@@ -617,8 +625,19 @@ border-bottom: 9px solid #2982FF;
 border-left: 9px solid #2982FF;
 background: #FFF;
 
+font-family: Lato;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: 94.5%; /* 18.9px */
+letter-spacing: 2.2px;
+text-align: left;
+padding-left: 40px;
+color: rgba(0, 0, 0, 0.39);
+
 /* Drop Shadow */
 box-shadow: 4px 5px 0px 0px #02187E;
+
 }
 .seccion8 div > button{
     width: 218px;
@@ -627,7 +646,18 @@ box-shadow: 4px 5px 0px 0px #02187E;
     border: 9px solid #2982FF;
     background: #FFE901;
     box-shadow: 4px 5px 0px 0px #02187E;
+    box-shadow: 4px 5px 0px 0px #02187E;
+    font-family: Lato;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 1000;
+    line-height: 94.5%; /* 18.9px */
+    letter-spacing: 2.2px;
+    text-align: center;
+    color: #02187E;
+    -webkit-text-stroke:2px;
 }
+
 .seccion8 > p{
     width: 578px;
 height: 95px;
@@ -699,6 +729,12 @@ nav button{
     -webkit-text-stroke:2px;
     text-align: center;
     align-self: center;
+}
+
+nav button:hover{
+    background-color: #e8bf08; /* Un tono dorado más oscuro */
+  box-shadow: 4px 8px 0px 0px #02187E; /* Ajuste de la sombra */
+  transform: translateY(5px);
 }
 .noseve{
     opacity: 0;
