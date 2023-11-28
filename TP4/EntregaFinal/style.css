@@ -775,7 +775,7 @@ nav button{
 
 #cardjuego2{
     position: relative;
-    top: -143px;
+    top: -70px;;
     transform: perspective(300px) rotateY(25deg) rotate(-15deg) scale(.9);
     transition: all 0.888s ease-in-out;
     width: 80%;
@@ -789,7 +789,7 @@ nav button{
 }
 #cardjuego3{
     position: relative;
-    top: -227px;
+    top: -128px;;
     transform: perspective(300px) rotateY(25deg) rotate(-15deg) scale(.9);
     transition: all 0.888s ease-in-out;
     width: 80%;
