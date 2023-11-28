@@ -142,7 +142,7 @@ body{
 } 
 #edificios{
     position: relative;
-    top: -858px;
+    top: -722px;
 }
 
 .deptoizq{
@@ -240,10 +240,7 @@ footer{
     z-index: 20;
     aspect-ratio: 16/9;
 }
-.contenedorcentral > section{
-    aspect-ratio: 16/9;
-    border: solid 1px rgb(255, 25, 25);
-}
+
 #sectionDuende{
     padding-top: 140px;
     height: 938px;
@@ -325,7 +322,6 @@ line-height: normal;
 .columna{
     height: inherit;
     width: 332.96px;
-    border: solid 1px yellow;
     transform: translate(-200px, 0px);
     opacity: 0;
 }
@@ -493,9 +489,10 @@ padding-top: 10px;
     left: 100px;
     z-index: 10;
     aspect-ratio: 16/9;
-    border: solid 1px rgb(255, 25, 25);
 }
 .btn-comprarahora{
+    position: relative;
+    top: 2180px;
     width: 292px;
     height: 50px;
     border-radius: 111px;
@@ -519,7 +516,7 @@ padding-top: 10px;
 }
 
 .btn-comprarahora:hover{
-    background-color: #e8bf08; /* Un tono dorado más oscuro */
+    background-color: rgb(201, 167, 17); /* Un tono dorado más oscuro */
   box-shadow: 4px 8px 0px 0px #02187E; /* Ajuste de la sombra */
   transform: translateY(5px);
 }
@@ -686,7 +683,7 @@ text-decoration-line: underline;
     width: 100%;
 }
 .footercontenido{
-    margin-top: 558px;
+    margin-top: 800px;
 }
 .footercontenido >p{
     width: 820px;
@@ -791,9 +788,7 @@ nav button:hover{
     top: 170px;
 }
 
-.hola{
-    background-color: red;
-}
+
 #cardjuego1{
     position: relative;
     top: -11px;
@@ -842,11 +837,11 @@ nav button:hover{
     margin: auto;
     height: 79px;
     width: 35px;
-    top: -1000px;
-    left: -354px;
+    top: -887px;
+    left: -351px;
     background-image: url(img/spidermanSprite.png);
     animation: mover 2s steps(7) infinite;
-    transform: rotate(5deg);
+    transform: rotate(7deg);
 }
 @keyframes mover{
     0% { background-position:0 }
@@ -859,7 +854,6 @@ nav button:hover{
     margin: auto;
     height: 70px;
     width: 71px;
-    top: -1000px;
     left: -354px;
     background-image: url(img/spidermanSprite2.png);
     animation: mover2 2s steps(2) infinite;
@@ -919,4 +913,47 @@ nav button:hover{
     }
 }
 
+@media (min-width:1281px) {
+        .contenedorcentral{
+            left: 200px;
+        }
+        .contenedorcentral > *{
+            margin-top: 9%;
+        }
+        #spider2{
+            left: 495px;
+        }
+        #spider3{
+            top: 133px;
+            left: 900px;
+        }
+        #web1{
+            left: -239px;
+            top: 128px;
+            width: 60%;
+        }
+        #juegoduende{
+            top: 550px;
+        }
+        .btn-comprarahora{
+            top : 2338px;
+        }
+        .footercontenido{
+           margin-top: 1300px;
+        }
+        #sprite{
+            left: -408px;
+        }
+        #sprite:hover{
+            left: -408px;
+        }
 
+        #carga{
+            top: 130px;
+        left: 640px;
+        }
+        #barracarga{
+            top: 358px;
+            left: 466px;
+        }
+}
