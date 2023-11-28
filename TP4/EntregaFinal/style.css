@@ -835,3 +835,52 @@ nav button{
 
   100% { background-position:-411px }
 }
+
+.paginaInicial{
+    position: fixed;
+    background-color: white;
+    width: 10000%;
+    height: 1000%;
+    z-index: 3000;
+    scroll-behavior: none;
+}
+
+#carga{   
+    width: 250px;
+    position: relative;
+    top: 130px;
+    left: 500px;
+}
+#carga > img{
+    width: 100%;
+    animation: vuelta 0.5s ease-in-out infinite;
+}
+@keyframes vuelta{                    
+    100%{
+        transform: rotate(360deg);
+    }
+}
+#barracarga{
+    position: absolute;
+    width: 600px;
+    top: 358px;
+    left: 336px;
+    transform: rotate(180deg);
+}
+#blanco{
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    width: 600px;
+    height: 100%;
+    top: 0;
+    left: 0;
+    animation: completado 5s ease infinite;
+
+} 
+@keyframes completado {
+    100%{
+        width: 0.1px;
+    }
+}
+
+
