@@ -145,8 +145,6 @@ class Tablero{
             const matriz = this.matriz;
             const jugador = ficha.getJugador();
             const cantGanar = this.cantGanar;
-
-            console.log(jugador);
          
             //Cuenta la cantidad de fichas 
             const verificarLinea = (arr) => {
@@ -215,26 +213,33 @@ class Tablero{
         colocarFicha(ficha) {
             // (coloca la ficha en la posición correspondiente en la matriz)
             let posXFicha = ficha.getPosX();
-            let posYFicha = ficha.getPosY();
 
-        for(var j=0; j<this.cantfilas; j++) {
-            for(var i=0; i<this.cantcolumnas; i++){
-                let casillero = this.matriz[j][i];
-                const range = 1;
-            if (
-                posXFicha >= casillero.getPosX() - range &&
-                posXFicha <= casillero.getPosX() + casillero.getRadius() * 2 + range &&
-                posYFicha >= casillero.getPosY() - range &&
-                posYFicha <= casillero.getPosY() + casillero.getRadius() * 2 + range
-            ){
-                let posXnueva = casillero.getPosX() + 0;
-                let posYnueva = casillero.getPosY() + 0;
+                let Col = 0; 
+                let encontro = false;
+
+            while(!encontro && Col<this.cantcolumnas){
+                let posCol = this.getPosCol(Col);
+                if  (
+                    posXFicha >= posCol &&
+                    posXFicha <= posCol + this.matriz[0][0].getRadius() * 2){
+                        encontro = true;
+                    }
+                    else {
+                        Col++;}
+
+            }
+                let FilDis = this.buscarFiladisponible(Col);
+
+                console.log(FilDis);
+                let casilleroDis = this.matriz[FilDis][Col];
+
+                let posXnueva = casilleroDis.getPosX() + 0;
+                let posYnueva = casilleroDis.getPosY() + 0;
                 ficha.setPosition(posXnueva, posYnueva);
-                this.matriz[j][i] = ficha;
-            }
-                }
-            }
-    
+
+                this.matriz[FilDis][Col] = ficha; 
+                
+            this.imprimir();
             // Verificar la victoria después de colocar una ficha
             const ganador = this.verificarVictoria(ficha);
             return ganador; // Devuelve el ganador si lo hay, de lo contrario, null
@@ -244,6 +249,21 @@ class Tablero{
             return this.tamanoCasilleros;
         }
 
+        getPosCol(col){
+          let cas1  = this.matriz[0][col];
+           return cas1.getPosX();
+        }
+
+        buscarFiladisponible(Col){
+    
+            for(var i=this.cantfilas - 1; i>=0; i--){
+                if (this.matriz[i][Col].esCasillero){
+                    return i;
+                }
+            }
+            return null;
+        }
 
     }
+
 

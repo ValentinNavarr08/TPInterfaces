@@ -44,12 +44,7 @@ switch(cantGan){
         CantC = 11;
         break;
 }
-console.log(CantF);
-console.log(CantC);
 
-
-
-console.log(cantGan);
 menu.classList.add("ocultarSection");
 
 // creamos tablero
@@ -59,13 +54,11 @@ tablero.dibujar();
 const Tficha = tablero.getTamanoCasilleros();
 
 var fichasblue = crearfichas(fichablue, Tficha);
-console.log(fichasblue);
+
 drawfichas(fichasblue);
 var fichasred = crearfichas(fichared, Tficha);
 drawfichas(fichasred);
 
-console.log(fichasblue);
-console.log(fichasred);
 
 // Empieza el jugador rojo (1)
 var jugadoractivo = "jugador1";
@@ -154,7 +147,6 @@ function onmouseup(e){
             mostrarMensaje(ganador + " WIN");
             canvas.style.opacity = 0.7;
             canvas.classList.add("rotate");
-            console.log("win");
             timer.stop(); 
         }
         else{
