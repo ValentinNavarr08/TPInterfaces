@@ -52,7 +52,8 @@ class Tablero{
             for(var i=0; i<this.cantcolumnas; i++){
                 this.matriz[j][i].draw();
             }
-        } 
+        }
+       
     }
 
     // Determina si la ficha esta encima de una casillero 
@@ -64,7 +65,7 @@ class Tablero{
             for(var i=0; i<this.cantcolumnas; i++){
             if (this.matriz[j][i].esCasillero){
                 let casillero = this.matriz[j][i];
-                const range = 1;
+                const range = 0.5;
                 if (
                     posXFicha >= casillero.getPosX() - range &&
                     posXFicha <= casillero.getPosX() + casillero.getRadius() * 2 + range &&
@@ -80,64 +81,7 @@ class Tablero{
                 }
             }
             return false;
-        } 
-
-
-        //Se inserta la ficha en el casillero más cercano
-        insertarFichaEnCasillero(ficha) {
-            let mejorCasillero = null;
-            let maxPixelesDentro = 0;
-        
-            for (let j = 0; j < this.cantfilas; j++) {
-                for (let i = 0; i < this.cantcolumnas; i++) {
-                    if (this.matriz[j][i].esCasillero) {
-                        let casillero = this.matriz[j][i];
-                        let pixelesDentro = calcularPixelesDentro(ficha, casillero);
-                        
-                        if (pixelesDentro > maxPixelesDentro) {
-                            maxPixelesDentro = pixelesDentro;
-                            mejorCasillero = casillero;
-                        }
-                    }
-                }
-            }
-            
-            if (mejorCasillero) {
-                // Inserta la ficha en el mejor casillero.
-                ficha.setPosition(mejorCasillero.getPosX(), mejorCasillero.getPosY());
-                mejorCasillero.insertarFicha(ficha);
-            }
         }
-
-        calcularPixelesDentro(ficha, casillero) {
-            const fichaPosX = ficha.getPosX();
-            const fichaPosY = ficha.getPosY();
-            const casilleroPosX = casillero.getPosX();
-            const casilleroPosY = casillero.getPosY();
-            const fichaRadio = ficha.getRadius();
-            const casilleroRadio = casillero.getRadius();
-        
-            // Calcula la distancia entre el centro de la ficha y el centro del casillero.
-            const distanciaCentros = Math.sqrt(Math.pow(fichaPosX - casilleroPosX, 2) + Math.pow(fichaPosY - casilleroPosY, 2));
-        
-            // Comprueba si el centro de la ficha está dentro del casillero.
-            if (distanciaCentros + fichaRadio <= casilleroRadio) {
-                // Toda la ficha está dentro del casillero.
-                return Math.PI * Math.pow(fichaRadio, 2);
-            } else if (distanciaCentros >= casilleroRadio + fichaRadio) {
-                // La ficha está completamente fuera del casillero.
-                return 0;
-            } else {
-                // La ficha está parcialmente dentro del casillero.
-                // Calcula el área del segmento circular.
-                const angulo = 2 * Math.acos((Math.pow(casilleroRadio, 2) + Math.pow(distanciaCentros, 2) - Math.pow(fichaRadio, 2)) / (2 * casilleroRadio * distanciaCentros));
-                const areaSegmento = 0.5 * Math.pow(casilleroRadio, 2) * (angulo - Math.sin(angulo));
-        
-                return areaSegmento;
-            }
-        }
-
-
 
 
     //Se recoree la matriz y devuelve ganador si lo hay

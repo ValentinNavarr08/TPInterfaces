@@ -121,7 +121,9 @@ if(lastClickedFigure != null) {
 }
 
 
-let clickFig = findClickedFigure(e.layerX, e.layerY);//coordenadas de x e y dentro del canvas
+let clickFig = findClickedFigure(e.offsetX,e.offsetY);//coordenadas de x e y dentro del canvas
+
+console.log(e);
 if(clickFig != null) {
     clickFig.setResaltado(true);
     lastClickedFigure = clickFig;
@@ -214,7 +216,6 @@ function clearCanvas(){
 
 //trata de encontrar la figura sobre la que se hace click
 function findClickedFigure(x,y){
-    /* ----------- OPTIMIZAR------------*/
 
     if (jugadoractivo == "jugador1"){
         for(let i = 0; i < fichasred.length; i++){
